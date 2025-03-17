@@ -20,7 +20,5 @@ function getCookie(name) {
 }
 
 if (!getCookie("visited")) {
-    alert("Hey there!, thanks for using my site! Have you heard of my new one? Well if you did not then go to http://nintendoboi2222.github.io. (please try to use that more as it will allow me to make more improvements on my sites).");
-    window.open("http://nintendoboi2222.github.io");
     setCookie("visited", "true", 365);
 }
