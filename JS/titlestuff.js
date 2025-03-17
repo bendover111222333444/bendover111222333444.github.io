@@ -18,9 +18,9 @@ window.addEventListener("keydown", function (e) {
 const siteNames = [
     "N", 
     "Ni", 
-    "Nin", 
-    "Nint", 
-    "Ninte", 
+    "Nig", 
+    "Nigg", 
+    "Niggg", 
     "Ninten", 
     "Nintend", 
     "Nintendo", 
@@ -43,7 +43,7 @@ const siteNames = [
     "Nintendoboi22222222222222",
     "Nintendoboi222222222222222",
     "Nintendoboi2222222222222222",
-    "Nintendoboi22222222222222222"
+    "Nah just kidding bendover111222333444"
 ];
 
 let currentIndex = 0;
