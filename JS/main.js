@@ -5,7 +5,7 @@ document.onkeydown = function (e) {
 };
 
 var says = [];
-fetch('https://raw.githubusercontent.com/Nintendoboi222/games/refs/heads/main/says.txt')
+fetch('https://raw.githubusercontent.com/bendover111222333444/games/refs/heads/main/says.txt')
   .then(response => response.text())
   .then(text => {
     says = text.split('\n').filter(line => line.trim() !== '');
