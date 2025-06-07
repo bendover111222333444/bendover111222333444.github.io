@@ -10,7 +10,6 @@
 -  **Add more games**
 -  [Google WebApp](https://support.google.com/googleplay/work/answer/9147423?hl=en)
 ---
----
 
 > # Game Owners
 [credits](https://github.com/bendover111222333444/games/blob/main/credits.md)
