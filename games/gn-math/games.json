@@ -1,4 +1,12 @@
-[
+[ 
+  {
+    "id": 0,
+    "name": "Bowmasters",
+    "cover": "0.png",
+    "url": "0.html",
+    "author": "Dedra Games",
+    "authorLink": "https://dedragames.com"
+  },
   {
     "id": 1,
     "name": "OvO",

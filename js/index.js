@@ -1,11 +1,9 @@
-import {navigateHtml, loadScripts, injectRaw} from "./navigate.js";
-
-const content = document.getElementById("content"); 
+import {content, navigateHtml, loadScripts, injectRaw} from "./public.js";
 
 (async () => {
 
     await navigateHtml(content, "./pages/main.html", false);
     await navigateHtml(content, "./pages/static.html", true);
-    loadScripts([{script: "./js/main.js", module: false}, {script: "./js/static.js", module: true}]);
+    await loadScripts([{script: "./js/main.js", module: true}, {script: "./js/static.js", module: true}]);
 
 })();

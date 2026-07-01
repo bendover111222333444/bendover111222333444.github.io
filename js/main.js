@@ -2,6 +2,7 @@ const titleCaption = document.getElementById("titleCaption");
 
 const refreshLength = 10000;
 const msgs = [
+
     "new site lets go",
     "will add proxy just wait!",
     "inspirational quote here",
@@ -16,12 +17,17 @@ const msgs = [
     "i will add movies too :)",
     "this site is unblockable",
     "im running out of ideas tbh",
-    "no profit no ads :)",  
+    "no profit no ads :)",
+    "working site --> qol --> more features",
+    "",
+
 ]
 
 const dynamicMsgs = [
+
     () => `it is ${new Date().toTimeString().slice(0, 8)}`,
     () => `${Array.from({ length: 20 }, () => Math.round(Math.random())).join("")}`,
+
 ]
 
 function msgIndex() {

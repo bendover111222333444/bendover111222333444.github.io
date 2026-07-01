@@ -1,30 +1,15 @@
-import {navigateHtml, injectRaw} from "../navigate.js";
-import createAdBlocker from "./blockads.js";
-import gnMathFormatData from "./gn-math.js";
+import {content, navigateHtml, injectRaw, initBtns} from "../public.js";
+import {gnMathFormatData} from "./games-public.js";
+import {iframeTemplate, buttonTemplate} from "../templates.js";
 
 const gamesGridDiv = document.getElementById("gamesGridDiv");
-const content = document.getElementById("content"); 
-
-function buttonTemplate(name, html, cover) {
-
-    return `<button class="gameButton" data-html=${html}> 
-        <img class="gameImg" src="${cover}" alt="${name}"> 
-        <p class="defaultText gameText">${name}</p> 
-    </button>`
-
-}
-
-function iframeTemplate(html) {
-
-    return `<iframe src="${html}" style="width:100vh; height:100vw; border:0;"></iframe>`
-
-}
 
 async function buttonFunc(event) {
 
-    const htmlLink = event.currentTarget.dataset.html
-    await injectRaw(content, iframeTemplate(htmlLink), false);
-    await navigateHtml(content, "./pages/static.html", true);
+    const htmlLink = event.currentTarget.dataset.html;
+    await injectRaw(content, await iframeTemplate(htmlLink), false);
+    await navigateHtml(content, `./pages/static.html`, true);
+    initBtns();
 
 }
 

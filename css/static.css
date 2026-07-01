@@ -1,9 +1,9 @@
 .navButton {
 
-    border: 2px solid var(--text-primary);
-    background-color: var(--text-primary);
+    border: none;
+    background-color: var(--secondary);
     border-radius: 5px;
-    box-shadow: 0 0 10px var(--text-secondary);
+    box-shadow: 0 0 10px var(--secondary);
     width: 40px;
     height: 40px;
     opacity: 0.8;
