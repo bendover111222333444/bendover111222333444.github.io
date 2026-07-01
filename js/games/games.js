@@ -1,5 +1,5 @@
 import {content, navigateHtml, injectRaw, initBtns} from "../public.js";
-import {gnMathFormatData} from "./games-public.js";
+import {sources, gnMathFormatData, ugsFormatData} from "./games-public.js";
 import {iframeTemplate, buttonTemplate} from "../templates.js";
 
 const gamesGridDiv = document.getElementById("gamesGridDiv");
@@ -14,6 +14,14 @@ async function buttonFunc(event) {
 }
 
 async function getGames(formatFunc) {
+
+    const buttonsDelete = Array.from(document.getElementsByClassName("gameButton"));
+    buttonsDelete.forEach(button => {
+        
+        button.removeEventListener("click", buttonFunc);
+        button.remove();
+
+    });
 
     const gameData = await formatFunc();
     let injectHtml = ``
@@ -36,3 +44,13 @@ async function getGames(formatFunc) {
 }
 
 getGames(gnMathFormatData);
+document.querySelectorAll("button[data-provider]").forEach(button => {
+
+    button.addEventListener("click", async () => {
+        
+        const provider = button.dataset.provider;
+        await getGames(sources[provider]);
+    
+    });
+
+});

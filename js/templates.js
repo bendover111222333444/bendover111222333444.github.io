@@ -14,6 +14,14 @@ export async function iframeTemplate(url) {
   const blob = new Blob([html], { type: "text/html" });
   const blobUrl = URL.createObjectURL(blob);
 
-  return `<iframe src="${blobUrl}" class="defaultIframe"></iframe>`;
+  const iframeShell = `
+    <iframe
+      src="${blobUrl}"
+      class="defaultIframe"
+      sandbox="allow-scripts allow-same-origin"
+    ></iframe>
+  `;
 
+  return iframeShell;
+  
 }

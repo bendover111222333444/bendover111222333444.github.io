@@ -19,7 +19,7 @@ const msgs = [
     "im running out of ideas tbh",
     "no profit no ads :)",
     "working site --> qol --> more features",
-    "",
+    "Look Behind You",
 
 ]
 
