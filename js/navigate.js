@@ -1,40 +1,43 @@
-let injectedScripts = new Set()
-
-export async function navigate(main, page) {
+export async function navigateHtml(root, page, addTo) {
 
     const html = await fetch(page).then(r => r.text());
-    main.replaceChildren();
-    main.insertAdjacentHTML("beforeend", `\n<!-- Replaced HTML --!>${html}\n`);
+    if(addTo === false) {
+
+        root.replaceChildren();
+
+    }
+
+    root.insertAdjacentHTML("beforeend", `\n<!-- Injected Html -->${html}\n`);
 
 }
 
-export async function inject(main, page) {
+export async function injectRaw(root, html, addTo) {
 
-    const html = await fetch(page).then(r => r.text());
-    main.insertAdjacentHTML("beforeend", `\n<!-- Injected HTML --!>${html}\n`);
+    if(addTo === false) {
+
+        root.replaceChildren();
+
+    }
+
+    root.insertAdjacentHTML("beforeend", `\n<!-- Added Html -->${html}\n`);
 
 }
 
-export function loadScripts(scripts, checkIfExist) {
+export function loadScripts(scripts) {
 
     scripts.forEach(script => {
         
-        if (checkIfExist === true && injectedScripts.has(script.script)) { return }
+        const old = document.querySelector(`script[src="${script.script}"]`);
+        if (old) old.remove();
 
         const newScript = document.createElement("script");
-        newScript.src = script.script;
+        newScript.src = `${script.script}?t=${Date.now()}`;
 
         if (script.module === true) {
 
             newScript.type = "module"
 
         }
-
-        injectedScripts.add(script.script);
-        
-        newScript.onerror = () => {
-            injectedScripts.delete(script.script);
-        };
 
         document.body.appendChild(newScript);
 

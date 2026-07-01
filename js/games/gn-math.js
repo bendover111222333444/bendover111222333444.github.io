@@ -1,17 +1,12 @@
-const gnMathUrl = "https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444-new-site/games/gn-math"
+const gnMathUrl = "https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444-new-site@main/games/gn-math/"
 const imagesUrl = `${gnMathUrl}/images/`
 const pagesUrl = `${gnMathUrl}/pages/`
 
-let games;
+let gamesPromise = fetch(`${gnMathUrl}/games.json`).then(r => r.json());
 
-(async () => {
+export default async function gnMathFormatData() {
 
-    const res = await fetch(`${gnMathUrl}/games.json`);
-    games = await res.json();
-
-})();
-
-export default function gnMathFormatData() {
+    const games = await gamesPromise;
 
     let data = []
 
@@ -25,7 +20,7 @@ export default function gnMathFormatData() {
 
         }
 
-        data.push({name: game.name, cover: `${gnMathUrl}${game.cover}`, html: `${gnMathUrl}${game.html}`, exInfo: special})
+        data.push({name: (game.name.toLowerCase().replaceAll(" ", "-")), cover: `${gnMathUrl}images/${game.cover}`, html: `${gnMathUrl}pages/${game.url}`, exInfo: special})
 
     }
 

@@ -1,4 +1,4 @@
-import { navigate, inject, loadScripts } from "./navigate.js";
+import { navigateHtml, loadScripts } from "./navigate.js";
 
 const content = document.getElementById("content");
 
@@ -10,11 +10,9 @@ async function buttonFunc(event) {
     const scripts = event.currentTarget.dataset.scripts;
 
     if (sendTo) {
-    
-        reset();
 
-        await navigate(content, `./pages/${sendTo}`);
-        await inject(content, `./pages/static.html`);
+        await navigateHtml(content, `./pages/${sendTo}`, false);
+        await navigateHtml(content, `./pages/static.html`, true);
 
         setTimeout(init, 0);
 
@@ -23,7 +21,7 @@ async function buttonFunc(event) {
     if (scripts) {
 
         const scriptObjects = JSON.parse(scripts);
-        loadScripts(scriptObjects, true);
+        loadScripts(scriptObjects);
 
     }    
 
@@ -35,16 +33,6 @@ function init() {
     buttons.forEach(button => {
 
         button.addEventListener("click", buttonFunc);
-
-    });
-
-}
-
-function reset() {
-
-    buttons.forEach(button => {
-
-        button.removeEventListener("click", buttonFunc);
 
     });
 
