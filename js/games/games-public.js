@@ -1,4 +1,4 @@
-const mainUrl = "https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444-new-site@main/"
+const mainUrl = "https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/"
 const mainImagesUrl = `${mainUrl}images/`
 const mainGamesUrl = `${mainUrl}games/`
 
@@ -21,8 +21,8 @@ function formatGameName(name) {
 
 export const sources = {
     
-  gn: gnMathFormatData,
-  ugs: ugsFormatData
+    gn: gnMathFormatData,
+    ugs: ugsFormatData
 
 };
 
