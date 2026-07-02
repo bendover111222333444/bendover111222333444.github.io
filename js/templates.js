@@ -18,7 +18,6 @@ export async function iframeTemplate(url) {
     <iframe
       src="${blobUrl}"
       class="defaultIframe"
-      sandbox="allow-scripts allow-same-origin"
     ></iframe>
   `;
 
