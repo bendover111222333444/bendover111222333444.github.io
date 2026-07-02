@@ -13,7 +13,6 @@
     let branchOrHash = "main";
     let restOfPath = "";
 
-    // 1. jsDelivr Parsing
     if (currentUrl.startsWith("https://cdn.jsdelivr.net/gh/")) {
       matchingIndex = 0;
       const path = currentUrl.replace("https://cdn.jsdelivr.net/gh/", "");
@@ -30,7 +29,6 @@
       }
       restOfPath = parts.slice(2).join('/');
     } 
-    // 2. Raw GitHub User Content Parsing
     else if (currentUrl.startsWith("https://raw.githubusercontent.com/")) {
       matchingIndex = 1;
       const path = currentUrl.replace("https://raw.githubusercontent.com/", "");
@@ -40,7 +38,6 @@
       branchOrHash = parts[2];
       restOfPath = parts.slice(3).join('/');
     } 
-    // 3. Statically Parsing
     else if (currentUrl.startsWith("https://statically.io/gh/")) {
       matchingIndex = 2;
       const path = currentUrl.replace("https://statically.io/gh/", "");
@@ -50,7 +47,6 @@
       branchOrHash = parts[2];
       restOfPath = parts.slice(3).join('/');
     } 
-    // 4. GitHack Parsing
     else if (currentUrl.startsWith("https://raw.githack.com/")) {
       matchingIndex = 3;
       const path = currentUrl.replace("https://raw.githack.com/", "");
@@ -123,40 +119,30 @@
       });
   }
 
-  const originalPostMessage = Window.prototype.postMessage;
-  Window.prototype.postMessage = function(message, targetOrigin, transfer) {
-    if (!targetOrigin || targetOrigin === "''" || targetOrigin === "") {
-      targetOrigin = '*';
-    }
-    if (typeof targetOrigin === 'object' && targetOrigin.origin) {
-      targetOrigin = targetOrigin.origin;
-    }
-    try {
-      if (transfer) {
-        return originalPostMessage.call(this, message, targetOrigin, transfer);
-      } else {
-        return originalPostMessage.call(this, message, targetOrigin);
-      }
-    } catch (e) {
-      if (e.name === 'SyntaxError') {
-        return originalPostMessage.call(this, message, '*');
-      }
-      throw e;
-    }
-  };
+  if (window.location.href.includes("youtube-playables") || document.querySelector('script[src*="ytgame.js"]')) {
+    try { delete window.getCurrentSdkUrl; } catch(e) {}
+    try { delete window.getLocationHash; } catch(e) {}
 
-  window.getCurrentSdkUrl = function() {
-    try {
-      const fallbackUrl = new URL("https://jsdelivr.net/");
-      fallbackUrl.toString = function() { return "https://jsdelivr.net/"; };
-      fallbackUrl.valueOf = function() { return "https://jsdelivr.net/"; };
-      return fallbackUrl;
-    } catch (e) {
-      return "https://jsdelivr.net/";
-    }
-  };
+    Object.defineProperty(window, 'getCurrentSdkUrl', {
+      get: function() {
+        return function() {
+          const fallbackUrl = new URL("https://cdn.jsdelivr.net/gh/bubbls/youtube-playables@main/bowmasters/ytgame.js");
+          fallbackUrl.toString = function() { return this.href; };
+          return fallbackUrl;
+        };
+      },
+      configurable: true,
+      enumerable: true
+    });
 
-  window.getLocationHash = function() {
-    return "#flags=none";
-  };
+    Object.defineProperty(window, 'getLocationHash', {
+      get: function() {
+        return function() {
+          return window.location.hash || "#flags=none";
+        };
+      },
+      configurable: true,
+      enumerable: true
+    });
+  }
 })();
