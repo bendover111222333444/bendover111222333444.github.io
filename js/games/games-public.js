@@ -3,10 +3,10 @@ const mainImagesUrl = `${mainUrl}images/`
 const mainGamesUrl = `${mainUrl}games/`
 const noImgUrl = `${mainImagesUrl}noImg.png`
 
-const ubgFilesUrl = "https://cdn.jsdelivr.net/gh/ubghyper/GameList.github.io/"
+const ubgFilesUrl = "https://cdn.jsdelivr.net/gh/ubghyper/GameList.github.io@main/"
 const ubgGamesUrl = `${mainGamesUrl}ubg/`
 
-const ugsFilesUrl = "https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile/UGS-Files/";
+const ugsFilesUrl = "https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/UGS-Files/";
 const ugsGamesUrl = `${mainGamesUrl}ugs/`
 
 const gnMathUrl = `${mainGamesUrl}gn-math/`

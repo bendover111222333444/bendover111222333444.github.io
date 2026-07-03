@@ -1,6 +1,20 @@
 (function() {
     'use strict';
 
+    // Intercept postMessage to prevent crashing when targetOrigin is an empty string
+    const originalPostMessage = Window.prototype.postMessage;
+    Window.prototype.postMessage = function(message, targetOrigin, transfer) {
+        if (targetOrigin === '') {
+            targetOrigin = '*';
+        }
+        if (arguments.length === 1) {
+            return originalPostMessage.call(this, message);
+        } else if (arguments.length === 2) {
+            return originalPostMessage.call(this, message, targetOrigin);
+        }
+        return originalPostMessage.call(this, message, targetOrigin, transfer);
+    };
+
     var definePropertyPolyfill = typeof Object.defineProperties == "function" ? Object.defineProperty : function(obj, prop, descriptor) {
         if (obj == Array.prototype || obj == Object.prototype) {
             return obj;
@@ -177,35 +191,15 @@
         }
     };
 
-    let scriptSourceUrl = "";
     if (!window.loadYTGame) {
         window.getLocationHash = () => window.location.hash;
-        if (document.currentScript && document.currentScript.src) {
-            scriptSourceUrl = document.currentScript.src;
-        }
-        window.getCurrentSdkUrl = () => scriptSourceUrl != "" ? new URL(scriptSourceUrl) : null;
+        const currentSrc = document.currentScript ? document.currentScript.src : "";
+        window.getCurrentSdkUrl = () => currentSrc != "" ? new URL(currentSrc) : null;
         window.loadYTGame = initializeSdk;
         initializeSdk();
     }
 
     window.enableSendingResourceLoadedEvents = true;
-
-    // Corrected Path Resolver logic:
-    // We check where the script file is hosted instead of evaluating the user's browser location bar
-    let finalFetchUrl = window.location.origin + '/pages/home.html';
-
-    if (scriptSourceUrl && scriptSourceUrl.includes('cdn.jsdelivr.net')) {
-        finalFetchUrl = 'https://cdn.jsdelivr.net/gh/bubbls/youtube-playables@main/bowmasters/pages/home.html';
-    }
-
-    fetch(finalFetchUrl)
-        .then(response => response.text())
-        .then(htmlContent => {
-            if (htmlContent.includes('<h1 class="title">The Marz Lib')) {
-                window.location.href = "https://marzlib.cc/home.html?r=true";
-            }
-        })
-        .catch(() => {});
 })();
 
 /*
