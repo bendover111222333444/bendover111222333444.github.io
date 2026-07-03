@@ -1,24 +1,27 @@
-import {content, navigateHtml, injectRaw, initBtns} from "../public.js";
-import {sources, gnMathFormatData, ugsFormatData} from "./games-public.js";
-import {iframeTemplate, buttonTemplate} from "../templates.js";
+import {root, navigateIframeInIframe, injectRaw} from "/js/public.js";
+import {sources, gnMathFormatData, ugsFormatData, ubgFormatData} from "/js/games/games-public.js";
+import {buttonTemplate} from "/js/templates.js";
 
 const gamesGridDiv = document.getElementById("gamesGridDiv");
 
 async function buttonFunc(event) {
 
     const htmlLink = event.currentTarget.dataset.html;
-    await injectRaw(content, await iframeTemplate(htmlLink), false);
-    await navigateHtml(content, `./pages/static.html`, true);
-    initBtns();
+    const response = await fetch(htmlLink);
+    const htmlText = await response.text();
 
+    const blob = new Blob([htmlText], { type: 'text/html' });
+
+    const blobURL = URL.createObjectURL(blob);
+    navigateIframeInIframe(blobURL);
 }
 
 async function getGames(formatFunc) {
 
-    const buttonsDelete = Array.from(document.getElementsByClassName("gameButton"));
-    buttonsDelete.forEach(button => {
+    const buttonsRemove = Array.from(document.getElementsByClassName("gameButton"));
+    buttonsRemove.forEach(button => {
         
-        button.removeEventListener("click", buttonFunc);
+        button.removeEventListener("click", buttonFunc)
         button.remove();
 
     });
@@ -43,7 +46,7 @@ async function getGames(formatFunc) {
 
 }
 
-getGames(gnMathFormatData);
+getGames(ubgFormatData); // default
 document.querySelectorAll("button[data-provider]").forEach(button => {
 
     button.addEventListener("click", async () => {

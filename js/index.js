@@ -1,9 +1,8 @@
-import {content, navigateHtml, loadScripts, injectRaw} from "./public.js";
+import {content, root, navigateIframe, injectPage} from "/js/public.js";
 
 (async () => {
 
-    await navigateHtml(content, "./pages/main.html", false);
-    await navigateHtml(content, "./pages/static.html", true);
-    await loadScripts([{script: "./js/main.js", module: true}, {script: "./js/static.js", module: true}]);
+    await navigateIframe(content, "/pages/main.html");
+    await injectPage(root, "/pages/inject/static.html", false)
 
 })();

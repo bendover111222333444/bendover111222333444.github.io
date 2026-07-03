@@ -1,14 +1,32 @@
-<link rel="stylesheet" href="./css/games.css">
-<div id="gamesDiv">
-    <hr class="seperator">
-    <div id="selectProviderDiv">
-        <p class="defaultText" id="gameProviderCaption">select-provider:</p>
-        <div class="vseperator"></div>
-        <button class="defaultText gameProviderText" data-provider="gn"><i>gn-math</i></button>
-        <div class="vseperator"></div>
-        <button class="defaultText gameProviderText" data-provider="ugs"><i>ugs</i></button>
-        <div class="vseperator"></div>
-    </div>
-    <hr class="seperator">
-    <div id="gamesGridDiv"></div>
-</div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bendover-site</title>
+        <link rel="icon" href="/images/icon.png">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/games.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <noscript>Enable javascript in big 26 gng</noscript>
+        <div id="gamesDiv">
+            <hr class="seperator">
+            <div id="selectProviderDiv">
+                <p class="defaultText" id="gameProviderCaption">select-provider:</p>
+                <div class="vseperator"></div>
+                <button class="defaultText gameProviderText" data-provider="ubg"><i>ubg</i></button>
+                <div class="vseperator"></div>
+                <button class="defaultText gameProviderText" data-provider="ugs"><i>ugs</i></button>
+                <div class="vseperator"></div>
+                <button class="defaultText gameProviderText" data-provider="gn"><i>gn-math</i></button>
+                <div class="vseperator"></div>
+            </div>
+            <hr class="seperator">
+            <div id="gamesGridDiv"></div>
+        </div>
+        <script type="module" src="/js/games/games-public.js"></script>
+        <script type="module" src="/js/games/games.js"></script>
+    </body>
+</html>

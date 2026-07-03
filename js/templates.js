@@ -6,21 +6,3 @@ export function buttonTemplate(name, html, cover) {
     </button>`
 
 }
-
-export async function iframeTemplate(url) {
-
-  const html = await fetch(url).then(r => r.text());
-
-  const blob = new Blob([html], { type: "text/html" });
-  const blobUrl = URL.createObjectURL(blob);
-
-  const iframeShell = `
-    <iframe
-      src="${blobUrl}"
-      class="defaultIframe"
-    ></iframe>
-  `;
-
-  return iframeShell;
-  
-}

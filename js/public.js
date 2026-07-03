@@ -1,186 +1,94 @@
-const scriptMemory = new Map();
-let currentScriptTracker = null;
-
-const originalAddEvent = EventTarget.prototype.addEventListener;
-const originalSetInterval = window.setInterval;
-const originalSetTimeout = window.setTimeout;
-const originalRequestAnimationFrame = window.requestAnimationFrame;
-const OriginalMutationObserver = window.MutationObserver;
-const OriginalWebSocket = window.WebSocket;
-
-EventTarget.prototype.addEventListener = function(type, listener, options) {
-  if (currentScriptTracker && scriptMemory.has(currentScriptTracker)) {
-    scriptMemory.get(currentScriptTracker).listeners.push({ target: this, type, listener, options });
-  }
-  return originalAddEvent.apply(this, arguments);
-};
-
-window.setInterval = function(callback, delay) {
-  const id = originalSetInterval.apply(this, arguments);
-  if (currentScriptTracker && scriptMemory.has(currentScriptTracker)) {
-    scriptMemory.get(currentScriptTracker).intervals.push(id);
-  }
-  return id;
-};
-
-window.setTimeout = function(callback, delay) {
-  const id = originalSetTimeout.apply(this, arguments);
-  if (currentScriptTracker && scriptMemory.has(currentScriptTracker)) {
-    scriptMemory.get(currentScriptTracker).timeouts.push(id);
-  }
-  return id;
-};
-
-window.requestAnimationFrame = function(callback) {
-  const id = originalRequestAnimationFrame.apply(this, arguments);
-  if (currentScriptTracker && scriptMemory.has(currentScriptTracker)) {
-    scriptMemory.get(currentScriptTracker).frames.push(id);
-  }
-  return id;
-};
-
-window.MutationObserver = function(callback) {
-  const instance = new OriginalMutationObserver(callback);
-  if (currentScriptTracker && scriptMemory.has(currentScriptTracker)) {
-    scriptMemory.get(currentScriptTracker).observers.push(instance);
-  }
-  return instance;
-};
-window.MutationObserver.prototype = OriginalMutationObserver.prototype;
-
-window.WebSocket = function(url, protocols) {
-  const instance = new OriginalWebSocket(url, protocols);
-  if (currentScriptTracker && scriptMemory.has(currentScriptTracker)) {
-    scriptMemory.get(currentScriptTracker).sockets.push(instance);
-  }
-  return instance;
-};
-window.WebSocket.prototype = OriginalWebSocket.prototype;
 
 export const content = document.getElementById("content");
+export const root = document.documentElement
 
-async function buttonFunc(event) {
+const rootCSS = "/css/index.css";
 
-    const sendTo = event.currentTarget.dataset.sendTo;
-    const scripts = event.currentTarget.dataset.scripts;
+async function injectScripts(scripts) {
 
-    if (sendTo) {
+    for (const oldScript of scripts) {
 
-        await navigateHtml(content, `./pages/${sendTo}`, false);
-        await navigateHtml(content, `./pages/static.html`, true);
+        const newScript = document.createElement("script");
 
-        setTimeout(initBtns, 0);
+        for (const attr of oldScript.attributes) {
 
-    }
+            newScript.setAttribute(attr.name, attr.value);
 
-    if (scripts) {
+        }
 
-        const scriptObjects = JSON.parse(scripts);
-        await loadScripts(scriptObjects);
+        if (oldScript.src) {
 
-    }    
+            if (oldScript.type === "module") {
 
-}
+                oldScript.before(newScript);
+                oldScript.remove();
 
-export function initBtns() {
+            } else {
 
-    let buttons = document.querySelectorAll("[data-send-to]");
-    buttons.forEach(button => {
+                await new Promise((resolve, reject) => {
+                    newScript.onload = resolve;
+                    newScript.onerror = reject;
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
 
-        button.addEventListener("click", buttonFunc);
+            }
 
-    });
+        } else {
 
-}
+            newScript.textContent = oldScript.textContent;
+            oldScript.parentNode.replaceChild(newScript, oldScript);
 
-export async function navigateHtml(root, page, addTo) {
-
-    const html = await fetch(page).then(r => r.text());
-    if(addTo === false) {
-
-        root.replaceChildren();
+        }
 
     }
 
-    root.insertAdjacentHTML("beforeend", `\n<!-- Injected Html -->${html}\n`);
+}
+
+export async function navigateIframeInIframe(page) {
+
+    window.frameElement.src = page;
 
 }
 
-export async function injectRaw(root, html, addTo) {
+export async function navigateIframe(iframe = content, page) {
 
-    if(addTo === false) {
+    iframe.onload = () => {
 
-        root.replaceChildren();
+        const transparentStyle = iframe.contentDocument.createElement('style');
+        transparentStyle.textContent = 'body { background-color: transparent !important; }';
+        iframe.contentDocument.head.appendChild(transparentStyle);
 
-    }
-
-    root.insertAdjacentHTML("beforeend", `\n<!-- Added Html -->${html}\n`);
-
-}
-
-export async function loadScripts(scripts) {
-
-  for (const script of scripts) {
-
-    const old = document.querySelector(`script[data-src="${script.script}"]`);
-
-    if (old) {
-
-      old.remove();
-      const previousSrc = old.getAttribute('src');
-
-      if (scriptMemory.has(previousSrc)) {
-
-        const memory = scriptMemory.get(previousSrc);
-        memory.listeners.forEach(({ target, type, listener, options }) => {
-          target.removeEventListener(type, listener, options);
-        });
-        memory.intervals.forEach(id => clearInterval(id));
-        memory.timeouts.forEach(id => clearTimeout(id));
-        memory.frames.forEach(id => cancelAnimationFrame(id));
-        memory.observers.forEach(obs => obs.disconnect());
-        memory.sockets.forEach(ws => { if (ws.readyState <= 1) ws.close(); });
-        scriptMemory.delete(previousSrc);
-
-      }
-
-    }
-
-    const currentSrc = `${script.script}?t=${Date.now()}`;
-    scriptMemory.set(currentSrc, { listeners: [], intervals: [], timeouts: [], frames: [], observers: [], sockets: [] });
+    };
     
-    currentScriptTracker = currentSrc;
+    iframe.src = page;
 
-    const newScript = document.createElement("script");
-    newScript.setAttribute('data-src', script.script);
-    newScript.setAttribute('src', currentSrc);
+}
 
-    if (script.module === true) {
+export async function injectPage(root = document.documentElement, page) {
 
-      newScript.type = "module";
-      document.body.appendChild(newScript);
-      
-      await new Promise(resolve => {
+    const response = await fetch(page);
+    if (!response.ok) {
 
-        newScript.onload = newScript.onerror = () => {
-
-          currentScriptTracker = null;
-          resolve();
-
-        };
-
-      });
-
-    } else {
-
-      const code = await fetch(currentSrc).then(r => r.text());
-      
-      newScript.textContent = `{\n${code}\n}`;
-      document.body.appendChild(newScript);
-      currentScriptTracker = null;
+        throw new Error(`HTTP error! status: ${response.status}`);
 
     }
 
-  }
+    const html = await response.text();
+
+    root.insertAdjacentHTML("beforeend", html);
+
+    const scripts = root.querySelectorAll("script");
+
+    await injectScripts(scripts)
+
+}
+
+export async function injectRaw(root = document.documentElement, html) {
+
+    root.insertAdjacentHTML("beforeend", html);
+
+    const scripts = root.querySelectorAll("script");
+
+    await injectScripts(scripts)
 
 }

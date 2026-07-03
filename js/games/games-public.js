@@ -1,10 +1,13 @@
 const mainUrl = "https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/"
 const mainImagesUrl = `${mainUrl}images/`
 const mainGamesUrl = `${mainUrl}games/`
+const noImgUrl = `${mainImagesUrl}noImg.png`
+
+const ubgFilesUrl = "https://cdn.jsdelivr.net/gh/ubghyper/GameList.github.io/"
+const ubgGamesUrl = `${mainGamesUrl}ubg/`
 
 const ugsFilesUrl = "https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile/UGS-Files/";
 const ugsGamesUrl = `${mainGamesUrl}ugs/`
-const noImgUrl = `${mainImagesUrl}noImg.png`
 
 const gnMathUrl = `${mainGamesUrl}gn-math/`
 const gnMathImagesUrl = `${gnMathUrl}images/`
@@ -12,6 +15,7 @@ const gnMathPagesUrl = `${gnMathUrl}pages/`
 
 let gnMathPromise = fetch(`${gnMathUrl}games.json`).then(r => r.json());
 let ugsPromise = fetch(`${ugsGamesUrl}games.json`).then(r => r.json());
+let ubgPromise = fetch(`${ubgGamesUrl}games.json`).then(r => r.json());
 
 function formatGameName(name) {
 
@@ -21,32 +25,36 @@ function formatGameName(name) {
 
 export const sources = {
     
+    ubg: ubgFormatData,
+    ugs: ugsFormatData,
     gn: gnMathFormatData,
-    ugs: ugsFormatData
 
 };
 
 export async function gnMathFormatData() {
 
-    const games = await gnMathPromise;
+    const files = await gnMathPromise;
 
-    let data = []
-
-    for (const game of games) {
+    return files.map(file => {
         
         let special = "None";
         
-        if (game.special) {
+        if (file.special) {
 
-            special = game.special[0];
+            special = file.special[0];
 
         }
 
-        data.push({name: formatGameName(game.name), cover: `${gnMathImagesUrl}${game.cover}`, html: `${gnMathPagesUrl}${game.url}`, exInfo: special})
+        return {
+        
+            name: formatGameName(file.name), 
+            cover: `${gnMathImagesUrl}${file.cover}`, 
+            html: `${gnMathPagesUrl}${file.url}`, 
+            exInfo: special
+        
+        }
 
-    }
-
-    return data;
+    });
 
 }
 
@@ -64,6 +72,34 @@ export async function ugsFormatData() {
             cover: noImgUrl,
             html: `${ugsFilesUrl}${encodeURIComponent(normalized)}`,
             exInfo: "None"
+
+        };
+
+    });
+
+}
+
+export async function ubgFormatData() {
+
+    const files = await ubgPromise;
+
+    return files.map(file => {
+        
+        const fileLink = `${ubgFilesUrl}${file.url}/`;
+        let output = "New"
+
+        if (file.new === false) {
+
+            output = "Old";
+
+        }
+
+        return {
+
+            name: file.name,
+            cover: `${fileLink}${file.cover}`,
+            html: fileLink,
+            exInfo: output
 
         };
 
