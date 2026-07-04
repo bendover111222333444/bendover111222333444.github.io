@@ -4,8 +4,8 @@ const mainGamesUrl = `${mainUrl}games/`
 const noImgUrl = `${mainImagesUrl}noImg.png`
 
 const ubgUrl = `${mainGamesUrl}ubg/`
-const ubgImagesUrl = `${gnMathUrl}images/`
-const ubgPagesUrl = `${gnMathUrl}pages/`
+const ubgImagesUrl = `${ubgUrl}images/`
+const ubgPagesUrl = `${ubgUrl}pages/`
 
 const ugsFilesUrl = "https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/UGS-Files/";
 const ugsGamesUrl = `${mainGamesUrl}ugs/`
