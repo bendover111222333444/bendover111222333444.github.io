@@ -14,6 +14,7 @@ async function buttonFunc(event) {
 
     const blobURL = URL.createObjectURL(blob);
     navigateIframeInIframe(blobURL);
+    
 }
 
 async function getGames(formatFunc) {

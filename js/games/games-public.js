@@ -3,8 +3,9 @@ const mainImagesUrl = `${mainUrl}images/`
 const mainGamesUrl = `${mainUrl}games/`
 const noImgUrl = `${mainImagesUrl}noImg.png`
 
-const ubgFilesUrl = "https://cdn.jsdelivr.net/gh/ubghyper/GameList.github.io@main/"
-const ubgGamesUrl = `${mainGamesUrl}ubg/`
+const ubgUrl = `${mainGamesUrl}ubg/`
+const ubgImagesUrl = `${gnMathUrl}images/`
+const ubgPagesUrl = `${gnMathUrl}pages/`
 
 const ugsFilesUrl = "https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/UGS-Files/";
 const ugsGamesUrl = `${mainGamesUrl}ugs/`
@@ -15,7 +16,7 @@ const gnMathPagesUrl = `${gnMathUrl}pages/`
 
 let gnMathPromise = fetch(`${gnMathUrl}games.json`).then(r => r.json());
 let ugsPromise = fetch(`${ugsGamesUrl}games.json`).then(r => r.json());
-let ubgPromise = fetch(`${ubgGamesUrl}games.json`).then(r => r.json());
+let ubgPromise = fetch(`${ubgUrl}games.json`).then(r => r.json());
 
 function formatGameName(name) {
 
@@ -68,7 +69,7 @@ export async function ugsFormatData() {
 
         return {
 
-            name: file,
+            name: formatGameName(normalized),
             cover: noImgUrl,
             html: `${ugsFilesUrl}${encodeURIComponent(normalized)}`,
             exInfo: "None"
@@ -85,21 +86,12 @@ export async function ubgFormatData() {
 
     return files.map(file => {
         
-        const fileLink = `${ubgFilesUrl}${file.url}/`;
-        let output = "New"
-
-        if (file.new === false) {
-
-            output = "Old";
-
-        }
-
         return {
 
-            name: file.name,
-            cover: `${fileLink}${file.cover}`,
-            html: fileLink,
-            exInfo: output
+            name: formatGameName(file.url),
+            cover: `${ubgImagesUrl}${file.url}${file.extention}`,
+            html: `${ubgPagesUrl}${file.url}.html`,
+            exInfo: "None"
 
         };
 
