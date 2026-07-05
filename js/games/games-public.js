@@ -88,8 +88,8 @@ export async function ubgFormatData() {
         
         return {
 
-            name: formatGameName(file.url),
-            cover: `${ubgImagesUrl}${file.url}${file.extention}`,
+            name: formatGameName(file.name),
+            cover: `${ubgImagesUrl}${file.image}`,
             html: `${ubgPagesUrl}${file.url}.html`,
             exInfo: "None"
 
