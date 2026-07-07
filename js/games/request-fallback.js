@@ -1,33 +1,67 @@
 (function() {
-    // The domains we want to look for and cycle through
-    const domains = [
-        "cdn.jsdelivr.net",
-        "cdn.statically.io",
-        "raw.githack.com"
+    // Define structural builders for each unique CDN layout
+    const cdnBuilders = [
+        {
+            domain: "cdn.jsdelivr.net",
+            build: (user, repo, branch, file) => `https://cdn.jsdelivr.net/gh/${user}/${repo}@${branch}/${file}`
+        },
+        {
+            domain: "cdn.statically.io",
+            build: (user, repo, branch, file) => `https://cdn.statically.io/gh/${user}/${repo}/${branch}/${file}`
+        },
+        {
+            domain: "raw.githack.com",
+            build: (user, repo, branch, file) => `https://raw.githack.com/${user}/${repo}/${branch}/${file}`
+        }
     ];
 
-    // Core fallback swapper: Takes a failed URL and tries the alternative domains
+    // Helper to parse any incoming CDN URL into its core components
+    function parseCdnUrl(url) {
+        let match;
+        if (url.includes("jsdelivr.net")) {
+            match = url.match(/jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)(?:@([^/]+))?\/(.*)/);
+            if (match) return { user: match[1], repo: match[2], branch: match[3] || "main", file: match[4] };
+        } else if (url.includes("statically.io")) {
+            match = url.match(/statically\.io\/gh\/([^/]+)\/([^/]+)\/([^/]+)\/(.*)/);
+            if (match) return { user: match[1], repo: match[2], branch: match[3], file: match[4] };
+        } else if (url.includes("githack.com")) {
+            match = url.match(/githack\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.*)/);
+            if (match) return { user: match[1], repo: match[2], branch: match[3], file: match[4] };
+        }
+        return null;
+    }
+
     async function tryFetchWithFallback(url, originalInput, init) {
-        // Find which domain the current request is using
-        const currentDomainIndex = domains.findIndex(d => url.includes(d));
-        if (currentDomainIndex === -1) {
-            return window._realFetch(originalInput, init); // Not our targets, pass through
+        // Parse the absolute URL structure
+        const absoluteUrl = new URL(url, document.baseURI).href;
+        const parsed = parseCdnUrl(absoluteUrl);
+
+        // If it's not a recognized CDN asset path, pass it straight through
+        if (!parsed) {
+            return window._realFetch(originalInput, init);
         }
 
-        // Try every domain in our list starting from the current one
-        for (let i = 0; i < domains.length; i++) {
-            const attemptIndex = (currentDomainIndex + i) % domains.length;
-            const targetUrl = url.replace(domains[currentDomainIndex], domains[attemptIndex]);
+        // Find where we are currently starting in our CDN builders sequence
+        const currentDomainIndex = cdnBuilders.findIndex(b => absoluteUrl.includes(b.domain));
+        const startIndex = currentDomainIndex !== -1 ? currentDomainIndex : 0;
+
+        // Loop through all builders using proper structural routing rules
+        for (let i = 0; i < cdnBuilders.length; i++) {
+            const attemptIndex = (startIndex + i) % cdnBuilders.length;
+            const builder = cdnBuilders[attemptIndex];
+            
+            // Build a clean, native URL layout specific to this destination CDN
+            const targetUrl = builder.build(parsed.user, parsed.repo, parsed.branch, parsed.file);
 
             console.log("➡️ [NETWORK REQUEST]:", targetUrl);
             try {
                 let res = await window._realFetch(targetUrl, init);
                 if (res.ok || res.status === 200) {
-                    return res; // Success! Return the response
+                    return res;
                 }
                 throw new Error("Status " + res.status);
             } catch (err) {
-                console.warn("🔄 [ROUTE FAILURE]: Trying next domain layout...", targetUrl);
+                console.warn("🔄 [ROUTE FAILURE]: Rotating layout...", targetUrl);
             }
         }
         return new Response('{"status":"error"}', { status: 404 });
@@ -54,15 +88,13 @@
         };
 
         xhr.send = function(body) {
-            // Resolve relative URLs to absolute so domain matching works cleanly
             const absoluteUrl = new URL(requestUrl, document.baseURI).href;
+            const parsed = parseCdnUrl(absoluteUrl);
             
-            const currentDomainIndex = domains.findIndex(d => absoluteUrl.includes(d));
-            if (currentDomainIndex === -1) {
-                return realSend.apply(this, arguments); // Pass through normal requests
+            if (!parsed) {
+                return realSend.apply(this, arguments);
             }
 
-            // Route through the fallback engine
             tryFetchWithFallback(absoluteUrl, absoluteUrl, {})
                 .then(async (res) => {
                     const buffer = await res.arrayBuffer();
