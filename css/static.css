@@ -112,10 +112,11 @@
 
 #loadingGif {
 
+    height: auto;
     width: 80px;
     margin: 0;
     padding: 0;
-    height: auto;
+
 }
 
 #loadingText {
