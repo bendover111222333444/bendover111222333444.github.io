@@ -842,41 +842,47 @@
     // Base Abstract Proto Type implementation wrapper
     var N = class {
         constructor(arr) {
+            var finalArray;
+
             if (arr == null) {
-                arr = [];
+                finalArray = [];
             } else {
                 if (!Array.isArray(arr)) {
                     throw Error("Invalid native array instantiation configuration block descriptor");
                 }
+                
                 var calculatedFlags = arr[arrayStateHashKey] | 0;
+                
+                // Fixed the illegal break statement by restructuring into an if/else block
                 if (calculatedFlags & 64) {
-                    var finalArray = arr;
-                    break;
-                }
-                var baseRef = arr;
-                calculatedFlags |= 64;
-                var length = baseRef.length;
-                if (length) {
-                    var lastIndex = length - 1;
-                    var trackingNode = baseRef[lastIndex];
-                    if (isObjectOrFunction(trackingNode) && !Array.isArray(trackingNode)) {
-                        calculatedFlags |= 256;
-                        const offset = calculatedFlags & 512 ? 0 : -1;
-                        lastIndex -= offset;
-                        for (var keyProp in trackingNode) {
-                            const numericKey = +keyProp;
-                            if (numericKey < lastIndex) {
-                                baseRef[numericKey + offset] = trackingNode[keyProp];
-                                delete trackingNode[keyProp];
+                    finalArray = arr;
+                } else {
+                    var baseRef = arr;
+                    calculatedFlags |= 64;
+                    var length = baseRef.length;
+                    if (length) {
+                        var lastIndex = length - 1;
+                        var trackingNode = baseRef[lastIndex];
+                        if (isObjectOrFunction(trackingNode) && !Array.isArray(trackingNode)) {
+                            calculatedFlags |= 256;
+                            const offset = calculatedFlags & 512 ? 0 : -1;
+                            lastIndex -= offset;
+                            for (var keyProp in trackingNode) {
+                                const numericKey = +keyProp;
+                                if (numericKey < lastIndex) {
+                                    baseRef[numericKey + offset] = trackingNode[keyProp];
+                                    delete trackingNode[keyProp];
+                                }
                             }
                         }
                     }
+                    setBitwiseStateValue(arr, calculatedFlags);
+                    finalArray = arr;
                 }
-                setBitwiseStateValue(arr, calculatedFlags);
-                finalArray = arr;
             }
             this.l = finalArray;
         }
+        
         toJSON() {
             return exportMessageToArray(this);
         }

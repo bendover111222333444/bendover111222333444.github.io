@@ -2,6 +2,12 @@
     const interceptDiv = document.getElementById('intercept');
     if (!interceptDiv) return;
 
+    // Grab or create the target iframe
+    const iframe = document.querySelector('iframe') || document.createElement('iframe'); 
+    if (!iframe.parentElement && iframe !== document.querySelector('iframe')) {
+        document.body.appendChild(iframe);
+    }
+
     const targetUrl = interceptDiv.getAttribute('data-src');
     if (!targetUrl) return;
 
@@ -26,7 +32,7 @@
 
     if (!user) return;
 
-    // Updated Priority Order: 1. jsDelivr, 2. Statically, 3. GitHack
+    // Configured CDNs
     const roots = [
         `https://cdn.jsdelivr.net/gh/${user}/${repo}@${branch}/`,
         `https://cdn.statically.io/gh/${user}/${repo}/${branch}/`,
@@ -36,11 +42,12 @@
     const pathSegments = filePath.split('/');
     const gameDir = pathSegments.length > 1 ? pathSegments.slice(0, -1).join('/') + '/' : '';
 
+    // Engine script injected into the iframe to catch sub-resource requests
     const fallbackEngineText = `
     <script>
         (function() {
             const roots = ${JSON.stringify(roots)};
-            let currentRootIndex = 0; // Starts at jsDelivr (index 0)
+            let currentRootIndex = 0;
 
             function parseTargetAsset(url) {
                 let absoluteUrl = new URL(url, document.baseURI).href;
@@ -123,7 +130,7 @@
                         return realSend.apply(this, arguments);
                     }
                     
-                    window._realFetch(requestUrl)
+                    tryFetchWithFallback(decision.path)
                         .then(async (res) => {
                             const buffer = await res.arrayBuffer();
                             Object.defineProperty(xhr, 'readyState', { value: 4, configurable: true });
@@ -144,17 +151,21 @@
     <\/script>
     `;
 
-    // Try parent fetch loop to grab index.html using priority order
+    // Parent fetch loop configured to gracefully catch CORS blocks and roll over
     for (let i = 0; i < roots.length; i++) {
         const initialFetchUrl = roots[i] + filePath;
         console.log("➡️ [PARENT FETCHING ROUTE] Trying:", initialFetchUrl);
+        
         try {
-            const response = await fetch(initialFetchUrl);
-            if (response.ok) {
+            const response = await fetch(initialFetchUrl, {
+                method: 'GET',
+                mode: 'cors',
+                redirect: 'follow'
+            });
+
+            if (response && response.ok) {
                 let htmlText = await response.text();
                 
-                // CRITICAL FIX: Strip hardcoded absolute repo links inside HTML tags (src="..." or href="...")
-                // This forces elements to resolve relatively against the <base> tag instead.
                 const cdnEscapeRegex = new RegExp(`href=["'](?:https?:)?//(?:cdn\\.jsdelivr\\.net/gh|cdn\\.statically\\.io/gh|raw\\.githack\\.com)/${user}/${repo}[^"']*?/${gameDir}([^"']+)["']|src=["'](?:https?:)?//(?:cdn\\.jsdelivr\\.net/gh|cdn\\.statically\\.io/gh|raw\\.githack\\.com)/${user}/${repo}[^"']*?/${gameDir}([^"']+)["']`, 'gi');
                 
                 htmlText = htmlText.replace(cdnEscapeRegex, (match, p1, p2) => {
@@ -173,10 +184,12 @@
                 const blob = new Blob([htmlText], { type: 'text/html' });
                 iframe.src = URL.createObjectURL(blob);
                 console.log("✅ [PARENT PIPELINE COMPLETE] Local Blob execution deployed.");
-                return;
+                return; 
+            } else {
+                console.warn(`⚠️ [ROUTE FAILED]: Status ${response ? response.status : 'Unknown'} for ${initialFetchUrl}`);
             }
         } catch (err) {
-            console.error("❌ Route unavailable.");
+            console.error(`❌ [CORS / NETWORK ERROR] Route unavailable for ${roots[i]}. Rotating to next option...`);
         }
     }
 })();
