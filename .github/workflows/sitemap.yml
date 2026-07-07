@@ -21,7 +21,7 @@ jobs:
       id: sitemap
       uses: cicirello/generate-sitemap@v1
       with:
-        use-cname-slug: true 
+        base-url-path: https://bendover-site.viewdns.net/
 
     - name: Commit and Push the Sitemap
       run: |
