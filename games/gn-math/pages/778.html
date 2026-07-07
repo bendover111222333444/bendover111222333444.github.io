@@ -1,12 +1,11 @@
 
 <html lang="en">
-  <base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/laingame/">
-    <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="images/icon.png" />
-        <style>
+<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/laingame/"/>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="images/icon.png" rel="icon" type="image/png"/>
+<style>
             .header {
                 border-bottom: none;
                 z-index: -1;
@@ -15,89 +14,88 @@
             .nav-links {
                 display: none;
             }
-        </style> 
-        <title>< game ></title> 
-      <script type="module" crossorigin src="assets/game4.js"></script>
-      <link rel="stylesheet" crossorigin href="assets/style-D1TkbFgT.css">
-    </head>
-    <body>
-        <div class="header" id="header-bar">
-            <div class="nav-links" id="nav-links-container"> 
-                <a href="/" class="header-link">main</a> 
-                <a href="notes.html" class="header-link">notes</a>
-                <a href="game.html" class="header-link">start</a>
-                <button class="header-link" id="settings-button">options</button>
-                <a href="guide.html" class="header-link">guide</a>
-            </div>
-
-            <div class="button-container">
-                <button id="dropdown-button">
-                    <img src="images/down.svg" class="button-icon" />
-                </button>
-                <button id="console-button">
-                    <img src="images/console.svg" class="button-icon" />
-                    <span class="badge" id="console-badge" style="display: none">0</span>
-                </button>
-            </div>
-        </div>
-        <div id="app">
-            <div id="game-container">
-                <div id="loading">Loading...</div>
-                <video id="media" disablePictureInPicture>
-                    <track id="track" kind="subtitles" default />
-                </video>
-                <div id="subtitle-container">
-                    <p id="subtitle" />
-                </div>
-            </div>
-        </div>
-        <div id="console-modal" class="modal">
-            <div class="console-modal-wrapper">
-                <div class="console-modal-header">
-                    <div>
-                        <h3 class="console-modal-title">Console Logger</h3>
-                        <div class="modal-error-msg" id="console-export-fail-msg"></div>
-                    </div>
-                    <div class="console-modal-controls">
-                        <button id="console-export-button" class="console-control-button">Export</button>
-                        <button id="console-clear-button" class="console-control-button">Clear</button>
-                    </div>
-                </div>
-                <div class="console-modal-content" id="console-modal-content">
-                    <div class="empty-state">No console messages yet.</div>
-                </div>
-            </div>
-        </div>
-        <div id="emote-wheel" class="wheel">
-            <div class="emote-slot" style="top: 10%; left: 50%" data-id="17">
-                <img src="emote-wheel/Lean Forward.png" />
-            </div>
-            <div class="emote-slot" style="top: 25%; left: 70%" data-id="6">
-                <img src="emote-wheel/Blush.png" />
-            </div>
-            <div class="emote-slot" style="top: 50%; left: 88%" data-id="3">
-                <img src="emote-wheel/Spin.png" />
-            </div>
-            <div class="emote-slot" style="top: 70%; left: 70%" data-id="29">
-                <img src="emote-wheel/Angry.png" />
-            </div>
-            <div class="emote-slot" style="top: 75%; left: 50%" data-id="27">
-                <img src="emote-wheel/Stretch 2.png" />
-            </div>
-            <div class="emote-slot" style="top: 70%; left: 30%" data-id="30">
-                <img src="emote-wheel/Open The Next.png" />
-            </div>
-            <div class="emote-slot" style="top: 50%; left: 15%" data-id="22">
-                <img src="emote-wheel/Ponder.png" />
-            </div>
-            <div class="emote-slot" style="top: 25%; left: 30%" data-id="23">
-                <img src="emote-wheel/Pray.png" />
-            </div>
-        </div>
-        <script src="scripts/modal.js"></script>
-        <script src="scripts/console.js"></script>
-        <script src="scripts/emotewheel.js"></script>
-        <script>
+        </style>
+<title>&lt; game &gt;</title>
+<script crossorigin="" src="assets/game4.js" type="module"></script>
+<link crossorigin="" href="assets/style-D1TkbFgT.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="header" id="header-bar">
+<div class="nav-links" id="nav-links-container">
+<a class="header-link" href="/">main</a>
+<a class="header-link" href="notes.html">notes</a>
+<a class="header-link" href="game.html">start</a>
+<button class="header-link" id="settings-button">options</button>
+<a class="header-link" href="guide.html">guide</a>
+</div>
+<div class="button-container">
+<button id="dropdown-button">
+<img class="button-icon" src="images/down.svg"/>
+</button>
+<button id="console-button">
+<img class="button-icon" src="images/console.svg"/>
+<span class="badge" id="console-badge" style="display: none">0</span>
+</button>
+</div>
+</div>
+<div id="app">
+<div id="game-container">
+<div id="loading">Loading...</div>
+<video disablepictureinpicture="" id="media">
+<track default="" id="track" kind="subtitles"/>
+</video>
+<div id="subtitle-container">
+<p id="subtitle"></p>
+</div>
+</div>
+</div>
+<div class="modal" id="console-modal">
+<div class="console-modal-wrapper">
+<div class="console-modal-header">
+<div>
+<h3 class="console-modal-title">Console Logger</h3>
+<div class="modal-error-msg" id="console-export-fail-msg"></div>
+</div>
+<div class="console-modal-controls">
+<button class="console-control-button" id="console-export-button">Export</button>
+<button class="console-control-button" id="console-clear-button">Clear</button>
+</div>
+</div>
+<div class="console-modal-content" id="console-modal-content">
+<div class="empty-state">No console messages yet.</div>
+</div>
+</div>
+</div>
+<div class="wheel" id="emote-wheel">
+<div class="emote-slot" data-id="17" style="top: 10%; left: 50%">
+<img src="emote-wheel/Lean Forward.png"/>
+</div>
+<div class="emote-slot" data-id="6" style="top: 25%; left: 70%">
+<img src="emote-wheel/Blush.png"/>
+</div>
+<div class="emote-slot" data-id="3" style="top: 50%; left: 88%">
+<img src="emote-wheel/Spin.png"/>
+</div>
+<div class="emote-slot" data-id="29" style="top: 70%; left: 70%">
+<img src="emote-wheel/Angry.png"/>
+</div>
+<div class="emote-slot" data-id="27" style="top: 75%; left: 50%">
+<img src="emote-wheel/Stretch 2.png"/>
+</div>
+<div class="emote-slot" data-id="30" style="top: 70%; left: 30%">
+<img src="emote-wheel/Open The Next.png"/>
+</div>
+<div class="emote-slot" data-id="22" style="top: 50%; left: 15%">
+<img src="emote-wheel/Ponder.png"/>
+</div>
+<div class="emote-slot" data-id="23" style="top: 25%; left: 30%">
+<img src="emote-wheel/Pray.png"/>
+</div>
+</div>
+<script src="scripts/modal.js"></script>
+<script src="scripts/console.js"></script>
+<script src="scripts/emotewheel.js"></script>
+<script>
             const dropdown_key = "lainTSX-dropdown-visible";
 
             const header = document.getElementById("header-bar");
@@ -142,5 +140,5 @@
                 toggle_menu();
             });
         </script>
-    </body>
+</body>
 </html>

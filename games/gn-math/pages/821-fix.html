@@ -1,7 +1,6 @@
 <html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <script>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<script>
       window.gameconfig = {
         name: "Apollo Justice - Ace Attorney",
         url: "https://cdn.jsdelivr.net/gh/genizy/emujs@main/apollojustice/Apollo%20Justice%20-%20Ace%20Attorney%20(USA).zip",
@@ -10,7 +9,7 @@
         max: 3,
       };
     </script>
-    <script>
+<script>
       function mergeFiles(fileParts, cb) {
         return new Promise((resolve, reject) => {
           let buffers = [];
@@ -41,7 +40,7 @@
         return parts;
       }
     </script>
-    <style>
+<style>
       body,
       html {
         margin: 0;
@@ -69,14 +68,14 @@
         display: inline-block;
       }
     </style>
-  </head>
-  <body>
-    <div id="game-container">
-      <div id="game"></div>
-      <div id="loading-progress">Loading: 0/0</div>
-      <div id="first-time">First-time loading may take longer...</div>
-    </div>
-    <script>
+</head>
+<body>
+<div id="game-container">
+<div id="game"></div>
+<div id="loading-progress">Loading: 0/0</div>
+<div id="first-time">First-time loading may take longer...</div>
+</div>
+<script>
       var parts = getParts(
         window.gameconfig.url,
         window.gameconfig.min,
@@ -116,5 +115,5 @@
             "Error loading game.";
         });
     </script>
-  </body>
+</body>
 </html>

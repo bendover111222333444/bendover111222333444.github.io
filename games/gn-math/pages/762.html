@@ -1,17 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Unity WebGL Player | CheeseRolling</title>
-    <base
-      href="https://cdn.jsdelivr.net/gh/SomeRandomFella/portsandrips@master/CheeseRollingWeb/"
-    />
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Unity WebGL Player | CheeseRolling</title>
+<base href="https://cdn.jsdelivr.net/gh/SomeRandomFella/portsandrips@master/CheeseRollingWeb/"/>
+<link href="TemplateData/favicon.ico" rel="shortcut icon"/>
+<link href="TemplateData/style.css" rel="stylesheet"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<style>
       #part-loader {
         position: fixed;
         top: 0;
@@ -59,26 +57,24 @@
         font-size: 1.1em;
       }
     </style>
-  </head>
-  <body>
-    <div id="part-loader">
-      <h1>Loading 🧀🧀🧀🧀🧀</h1>
-      <div id="parts-list"></div>
-      <div id="overall-status">rolling cheese wheels...</div>
-    </div>
-
-    <div id="unity-container" style="display: none">
-      <canvas id="unity-canvas" width="480" height="360" tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"></div>
-    </div>
-
-    <script>
+</head>
+<body>
+<div id="part-loader">
+<h1>Loading 🧀🧀🧀🧀🧀</h1>
+<div id="parts-list"></div>
+<div id="overall-status">rolling cheese wheels...</div>
+</div>
+<div id="unity-container" style="display: none">
+<canvas height="360" id="unity-canvas" tabindex="-1" width="480"></canvas>
+<div id="unity-loading-bar">
+<div id="unity-logo"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+<div id="unity-warning"></div>
+</div>
+<script>
       alert(
         "multiplayer is a bit buggy and laggy if anything multiplayer related breaks js refresh | ported by sexyplankton",
       );
@@ -271,5 +267,5 @@
 
       loadAllParts();
     </script>
-  </body>
+</body>
 </html>

@@ -1,34 +1,16 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/forced_square.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/images/pmllogo.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/images/discord.svg"
-      as="image"
-      type="image/svg+xml"
-    />
-    <link rel="manifest" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/manifest.json" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"
-    />
-    <script defer="defer" type="module" src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/error_screen.bundle.js"></script>
-    <script defer="defer" type="module" src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/main.bundle.js"></script>
-    <script>
+<head>
+<meta charset="utf-8"/>
+<link as="font" crossorigin="anonymous" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/forced_square.woff2" rel="preload" type="font/woff2"/>
+<link as="image" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/images/pmllogo.svg" rel="preload" type="image/svg+xml"/>
+<link as="image" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/images/discord.svg" rel="preload" type="image/svg+xml"/>
+<link href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/manifest.json" rel="manifest"/>
+<meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no" name="viewport"/>
+<script defer="defer" src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/error_screen.bundle.js" type="module"></script>
+<script defer="defer" src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Polytrack-Modded/main.bundle.js" type="module"></script>
+<script>
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('debug') === 'true') {
       const script = document.createElement('script');
@@ -37,10 +19,10 @@
       document.body.appendChild(script);
     }
   </script>
-  </head>
-  <body>
-    <canvas id="screen"></canvas>
-    <div id="ui"></div>
-    <div id="transition-layer"></div>
-  </body>
+</head>
+<body>
+<canvas id="screen"></canvas>
+<div id="ui"></div>
+<div id="transition-layer"></div>
+</body>
 </html>

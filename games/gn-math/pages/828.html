@@ -1,24 +1,23 @@
-<!doctypehtml>
-	<html lang=en>
+<!DOCTYPE tml>
 
-	<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-        <base href="https://cdn.jsdelivr.net/gh/web-ports/ac-gamecube@main/">
-		<meta charset=utf-8>
-		<meta content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover" name=viewport>
-		<meta content=#000000 name=theme-color>
-		<meta content=dark name=color-scheme>
-		<meta content=yes name=apple-mobile-web-app-capable>
-		<meta content=black-translucent name=apple-mobile-web-app-status-bar-style>
-		<meta content=Slider name=apple-mobile-web-app-title>
-		<meta content=yes name=mobile-web-app-capable>
-		<link href=manifest.webmanifest rel=manifest>
-		<link href=icon-192.png rel=icon type=image/png sizes=192x192>
-		<link href=icon-192.png rel=apple-touch-icon>
-		<link href=fonts/work-sans-400.woff2 rel=preload type=font/woff2 as=font crossorigin>
-		<link href=fonts/fragment-mono-400.woff2 rel=preload type=font/woff2 as=font crossorigin>
-		<link href=shell.css rel=stylesheet>
-		<style>
+<html lang="en">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/ac-gamecube@main/"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover" name="viewport"/>
+<meta content="#000000" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Slider" name="apple-mobile-web-app-title"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="icon-192.png" rel="apple-touch-icon"/>
+<link as="font" crossorigin="" href="fonts/work-sans-400.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="fonts/fragment-mono-400.woff2" rel="preload" type="font/woff2"/>
+<link href="shell.css" rel="stylesheet"/>
+<style>
 			#rom-picker { display: none !important; }
 			body { background: #000; }
 			#loading-text {
@@ -44,8 +43,8 @@
 				100% { background-position: 0% 50%; }
 			}
 		</style>
-		<title>Slider</title>
-		<script>
+<title>Slider</title>
+<script>
 			! function() {
 				var e = HTMLCanvasElement.prototype.getContext;
 				HTMLCanvasElement.prototype.getContext = function(t, n) {
@@ -54,220 +53,219 @@
 				}
 			}()
 		</script>
-	</head>
-
-	<body>
-		<div id="loading-text">LOADING...</div>
-		<div id=container><canvas id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas><canvas id=postfx-overlay aria-hidden=true></canvas></div>
-		<div id=status style=display:none></div>
-		<div id=progress></div>
-		<div id=loading-overlay aria-hidden=true><svg viewBox="0 0 24 24" aria-hidden=true height=56 width=56 xmlns=http://www.w3.org/2000/svg>
-				<circle cx=12 cy=12 r=0 fill=currentColor>
-					<animate attributeName=r begin=0;SVGftllRbIv.begin+0.6s dur=1.2s fill=freeze values=0;11 id=SVG0cdVlcnN calcMode=spline keySplines=.52,.6,.25,.99 />
-					<animate attributeName=opacity begin=0;SVGftllRbIv.begin+0.6s dur=1.2s fill=freeze values=1;0 calcMode=spline keySplines=.52,.6,.25,.99 />
-				</circle>
-				<circle cx=12 cy=12 r=0 fill=currentColor>
-					<animate attributeName=r begin=SVG0cdVlcnN.begin+0.6s dur=1.2s fill=freeze values=0;11 id=SVGftllRbIv calcMode=spline keySplines=.52,.6,.25,.99 />
-					<animate attributeName=opacity begin=SVG0cdVlcnN.begin+0.6s dur=1.2s fill=freeze values=1;0 calcMode=spline keySplines=.52,.6,.25,.99 />
-				</circle>
-			</svg></div>
-		<div id=touch-controls aria-hidden=true>
-			<div id=tc-stick-zone>
-				<div id=tc-stick-hint aria-hidden=true><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=hint-bg />
-						<circle cx=50 cy=50 r=20 class=hint-knob />
-					</svg></div>
-			</div>
-			<div id=tc-cstick-zone>
-				<div id=tc-cstick-hint aria-hidden=true><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=hint-bg />
-						<circle cx=50 cy=50 r=20 class=hint-knob /><text class=tc-label x=50 y=50>C</text>
-					</svg></div>
-			</div>
-			<div class=tc-button id=tc-dpad aria-label=D-pad data-tc-dpad=1><svg viewBox="0 0 100 100">
-					<path d="M36 4 H64 V36 H96 V64 H64 V96 H36 V64 H4 V36 H36 Z" class=tc-bg />
-				</svg></div>
-			<div id=tc-dpad-cluster>
-				<div class=tc-button id=tc-dpad-up aria-label=Up data-tc-button=0x0008><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg />
-						<polygon class=tc-arrow points="50,43 60,57 40,57" />
-					</svg></div>
-				<div class=tc-button id=tc-dpad-down aria-label=Down data-tc-button=0x0004><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg />
-						<polygon class=tc-arrow points="50,57 40,43 60,43" />
-					</svg></div>
-				<div class=tc-button id=tc-dpad-left aria-label=Left data-tc-button=0x0001><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg />
-						<polygon class=tc-arrow points="43,50 57,40 57,60" />
-					</svg></div>
-				<div class=tc-button id=tc-dpad-right aria-label=Right data-tc-button=0x0002><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg />
-						<polygon class=tc-arrow points="57,50 43,40 43,60" />
-					</svg></div>
-			</div>
-			<div id=tc-face-cluster>
-				<div class=tc-button id=tc-a aria-label=A data-tc-button=0x0100><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg /><text class=tc-label x=50 y=52>A</text>
-					</svg></div>
-				<div class=tc-button id=tc-b aria-label=B data-tc-button=0x0200><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg /><text class=tc-label x=50 y=52>B</text>
-					</svg></div>
-				<div class=tc-button id=tc-y aria-label=Y data-tc-button=0x0800><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg /><text class=tc-label x=50 y=52>Y</text>
-					</svg></div>
-				<div class=tc-button id=tc-x aria-label=X data-tc-button=0x0400><svg viewBox="0 0 100 100">
-						<circle cx=50 cy=50 r=46 class=tc-bg /><text class=tc-label x=50 y=52>X</text>
-					</svg></div>
-			</div>
-			<div id=tc-shoulder-row>
-				<div class=tc-button id=tc-l aria-label=L data-tc-button=0x0040><svg viewBox="0 0 100 50">
-						<rect height=46 width=96 x=2 y=2 class=tc-bg rx=14 /><text class=tc-label x=50 y=27>L</text>
-					</svg></div>
-				<div class=tc-button id=tc-start aria-label=Start data-tc-button=0x1000><svg viewBox="0 0 100 50">
-						<rect height=46 width=96 x=2 y=2 class=tc-bg rx=14 /><text class=tc-label x=50 y=27>START</text>
-					</svg></div>
-				<div class=tc-button id=tc-z aria-label=Z data-tc-button=0x0010><svg viewBox="0 0 100 50">
-						<rect height=46 width=96 x=2 y=2 class=tc-bg rx=14 /><text class=tc-label x=50 y=27>Z</text>
-					</svg></div>
-				<div class=tc-button id=tc-r aria-label=R data-tc-button=0x0020><svg viewBox="0 0 100 50">
-						<rect height=46 width=96 x=2 y=2 class=tc-bg rx=14 /><text class=tc-label x=50 y=27>R</text>
-					</svg></div>
-			</div>
-		</div>
-		<div id=rom-picker aria-hidden=true>
-			<h1>Slider – A Web Port of Animal Crossing (GameCube)</h1>
-			<div id=webkit-warning style=display:none role=alert><strong>Warning:</strong> Safari and <b>all</b> iOS browsers have a known memory leak (<a href="https://bugs.webkit.org/show_bug.cgi?id=304810" rel=noopener target=_blank>WebKit bug 304810</a>) that causes this application's memory usage to climb until the page crashes after about a minute. For a stable session try a Chrome, Edge, or any other Chromium-based browser on a desktop OS or Chrome on Android.</div>
-			<ol id=rom-instructions>
-				<li>Although this is a port and not an emulator, no assets are distributed here. A disc image file of AC is still necessary to play the game for this reason.</li>
-				<li>Thank you to <a href=https://github.com/ACreTeam/ac-decomp>ACreTeam</a> and <a href=https://github.com/flyngmt/ACGC-PC-Port>flyngmt</a> for their work on the decomp and PC port of ACGC, on which this project is built on top of.</li>
-				<li>This software is provided as-is, without warranty of any kind. There's no guarantee it won't corrupt your save data at some point, so export your save data as often as necessary. I have not playtested the entire game, at this stage there are very likely to be places where the game crashes before you have an opportunity to save.</li>
-				<li id=rom-install-item>This page is a PWA (Progressive Web App) which means you can save it locally on your device for an app-like experience with offline support. <button id=rom-install-btn type=button style=display:none>Install</button><span id=rom-install-hint style=display:none>Tap your browser's <em>Share</em> menu and choose <strong>Add to Home Screen</strong>, </span><span id=rom-install-fallback>Open your browser's menu and press Install / Add to Home Screen.</span></li>
-			</ol><label for=rom-file id=rom-drop>
-				<div class=primary>Drag a USA (GAFE01 Rev 0) disc image here, or click to select</div>
-				<div class=secondary>.iso · .gcm · .ciso — stays on your device</div><input id=rom-file type=file accept=.iso,.gcm,.ciso>
-			</label>
-			<div id=rom-runtime-status></div>
-			<div id=rom-status></div>
-			<div id=rom-saves>
-				<div class=rom-saves-heading>Memory card slots (optional)</div>
-				<div class=rom-saves-help>Import an existing .gci save before booting. Ignore to start a fresh save.</div>
-				<div class=rom-saves-grid>
-					<div class=rom-saves-slot data-slot=a>
-						<div class=rom-saves-slot-label>Slot A</div>
-						<div class="checking rom-saves-slot-state"><svg viewBox="0 0 24 24" aria-hidden=true height=14 width=14 xmlns=http://www.w3.org/2000/svg class=status-spinner>
-								<rect height=14 width=6 x=1 y=4 fill=currentColor>
-									<animate attributeName=opacity begin=0;SVGslota89dAd4w.end-0.25s dur=0.75s fill=freeze values=1;.2 id=SVGslot9ovaHbIP />
-								</rect>
-								<rect height=14 width=6 x=9 y=4 fill=currentColor opacity=.4>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.15s dur=0.75s fill=freeze values=1;.2 />
-								</rect>
-								<rect height=14 width=6 x=17 y=4 fill=currentColor opacity=.3>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.3s dur=0.75s fill=freeze values=1;.2 id=SVGslota89dAd4w />
-								</rect>
-							</svg><span>Checking…</span></div>
-						<div class=rom-saves-slot-actions><button id=rom-import-a type=button style=display:none class=rom-saves-btn>Import…</button> <button id=rom-export-a type=button style=display:none class=rom-saves-btn>Export</button> <button id=rom-remove-a type=button style=display:none class="rom-saves-btn rom-saves-btn-secondary">Delete</button></div>
-					</div>
-					<div class=rom-saves-slot data-slot=b>
-						<div class=rom-saves-slot-label>Slot B</div>
-						<div class="checking rom-saves-slot-state"><svg viewBox="0 0 24 24" aria-hidden=true height=14 width=14 xmlns=http://www.w3.org/2000/svg class=status-spinner>
-								<rect height=14 width=6 x=1 y=4 fill=currentColor>
-									<animate attributeName=opacity begin=0;SVGslota89dAd4w.end-0.25s dur=0.75s fill=freeze values=1;.2 id=SVGslot9ovaHbIP />
-								</rect>
-								<rect height=14 width=6 x=9 y=4 fill=currentColor opacity=.4>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.15s dur=0.75s fill=freeze values=1;.2 />
-								</rect>
-								<rect height=14 width=6 x=17 y=4 fill=currentColor opacity=.3>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.3s dur=0.75s fill=freeze values=1;.2 id=SVGslota89dAd4w />
-								</rect>
-							</svg><span>Checking…</span></div>
-						<div class=rom-saves-slot-actions><button id=rom-import-b type=button style=display:none class=rom-saves-btn>Import…</button> <button id=rom-export-b type=button style=display:none class=rom-saves-btn>Export</button> <button id=rom-remove-b type=button style=display:none class="rom-saves-btn rom-saves-btn-secondary">Delete</button></div>
-					</div>
-				</div>
-				<div class=rom-saves-status id=rom-saves-status></div><input id=rom-saves-file type=file accept=.gci style=display:none>
-			</div><button id=rom-start type=button disabled>Start</button>
-		</div><button id=tc-style-swap type=button aria-label="Toggle touch controls" title="Toggle touch controls (simplified ↔ full)"><svg viewBox="0 0 24 24" aria-hidden=true height=20 width=20 xmlns=http://www.w3.org/2000/svg>
-				<path d="M11.146 15.854a1.207 1.207 0 0 1 1.708 0l1.56 1.56A2 2 0 0 1 15 18.828V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.172a2 2 0 0 1 .586-1.414zM18.828 15a2 2 0 0 1-1.414-.586l-1.56-1.56a1.207 1.207 0 0 1 0-1.708l1.56-1.56A2 2 0 0 1 18.828 9H21a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1zm-12.242-.586A2 2 0 0 1 5.172 15H3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2.172a2 2 0 0 1 1.414.586l1.56 1.56a1.207 1.207 0 0 1 0 1.708zM9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2.172a2 2 0 0 1-.586 1.414l-1.56 1.56a1.207 1.207 0 0 1-1.708 0l-1.56-1.56A2 2 0 0 1 9 5.172z" fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 />
-			</svg></button> <button id=audio-toggle type=button aria-label="Toggle audio" title="Mute / unmute audio"><svg viewBox="0 0 24 24" aria-hidden=true height=20 width=20 xmlns=http://www.w3.org/2000/svg class=audio-icon-on>
-				<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298zM16 9a5 5 0 0 1 0 6m3.364 3.364a9 9 0 0 0 0-12.728" fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 />
-			</svg><svg viewBox="0 0 24 24" aria-hidden=true height=20 width=20 xmlns=http://www.w3.org/2000/svg class=audio-icon-off>
-				<path d="M16 9a5 5 0 0 1 .95 2.293m2.414-5.657a9 9 0 0 1 1.889 9.96M2 2l20 20M7 7l-.587.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298V11M9.828 4.172A.686.686 0 0 1 11 4.657v.686" fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 />
-			</svg></button> <button id=fullscreen-toggle type=button aria-label="Toggle fullscreen" title="Enter fullscreen"><svg viewBox="0 0 24 24" aria-hidden=true height=20 width=20 xmlns=http://www.w3.org/2000/svg class=fs-icon-expand>
-				<path d="m15 15l6 6M15 9l6-6m0 13v5h-5m5-13V3h-5M3 16v5h5m-5 0l6-6M3 8V3h5m1 6L3 3" fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 />
-			</svg><svg viewBox="0 0 24 24" aria-hidden=true height=20 width=20 xmlns=http://www.w3.org/2000/svg class=fs-icon-collapse>
-				<path d="m15 15l6 6m-6-6v4.8m0-4.8h4.8M9 19.8V15m0 0H4.2M9 15l-6 6M15 4.2V9m0 0h4.8M15 9l6-6M9 4.2V9m0 0H4.2M9 9L3 3" fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 />
-			</svg></button> <button id=settings-gear type=button aria-label=Settings title="Open settings"><svg viewBox="0 0 24 24" aria-hidden=true height=20 width=20 xmlns=http://www.w3.org/2000/svg>
-				<g fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2>
-					<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-					<circle cx=12 cy=12 r=3 />
-				</g>
-			</svg></button>
-		<dialog aria-labelledby=settings-title id=settings-menu>
-			<div class=menu-body>
-				<h2 id=settings-title>Settings</h2>
-				<h3>Saves</h3>
-				<div class=rom-saves-grid id=settings-saves>
-					<div class=rom-saves-slot data-slot=a>
-						<div class=rom-saves-slot-label>Slot A</div>
-						<div class="checking rom-saves-slot-state"><svg viewBox="0 0 24 24" aria-hidden=true height=14 width=14 xmlns=http://www.w3.org/2000/svg class=status-spinner>
-								<rect height=14 width=6 x=1 y=4 fill=currentColor>
-									<animate attributeName=opacity begin=0;SVGslota89dAd4w.end-0.25s dur=0.75s fill=freeze values=1;.2 id=SVGslot9ovaHbIP />
-								</rect>
-								<rect height=14 width=6 x=9 y=4 fill=currentColor opacity=.4>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.15s dur=0.75s fill=freeze values=1;.2 />
-								</rect>
-								<rect height=14 width=6 x=17 y=4 fill=currentColor opacity=.3>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.3s dur=0.75s fill=freeze values=1;.2 id=SVGslota89dAd4w />
-								</rect>
-							</svg><span>Checking…</span></div>
-						<div class=rom-saves-slot-actions><button id=settings-import-a type=button style=display:none class=rom-saves-btn>Import…</button> <button id=settings-export-a type=button style=display:none class=rom-saves-btn>Export</button> <button id=settings-remove-a type=button style=display:none class="rom-saves-btn rom-saves-btn-secondary">Delete</button></div>
-					</div>
-					<div class=rom-saves-slot data-slot=b>
-						<div class=rom-saves-slot-label>Slot B</div>
-						<div class="checking rom-saves-slot-state"><svg viewBox="0 0 24 24" aria-hidden=true height=14 width=14 xmlns=http://www.w3.org/2000/svg class=status-spinner>
-								<rect height=14 width=6 x=1 y=4 fill=currentColor>
-									<animate attributeName=opacity begin=0;SVGslota89dAd4w.end-0.25s dur=0.75s fill=freeze values=1;.2 id=SVGslot9ovaHbIP />
-								</rect>
-								<rect height=14 width=6 x=9 y=4 fill=currentColor opacity=.4>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.15s dur=0.75s fill=freeze values=1;.2 />
-								</rect>
-								<rect height=14 width=6 x=17 y=4 fill=currentColor opacity=.3>
-									<animate attributeName=opacity begin=SVGslot9ovaHbIP.begin+0.3s dur=0.75s fill=freeze values=1;.2 id=SVGslota89dAd4w />
-								</rect>
-							</svg><span>Checking…</span></div>
-						<div class=rom-saves-slot-actions><button id=settings-import-b type=button style=display:none class=rom-saves-btn>Import…</button> <button id=settings-export-b type=button style=display:none class=rom-saves-btn>Export</button> <button id=settings-remove-b type=button style=display:none class="rom-saves-btn rom-saves-btn-secondary">Delete</button></div>
-					</div>
-				</div>
-				<div class=rom-saves-status id=save-status></div><input id=import-file type=file accept=.gci style=display:none>
-				<div id=settings-install-section style=display:none>
-					<h3>Install</h3>
-					<p class=settings-install-help>Save this game to your device for an app-like experience with offline support.</p><button id=settings-install-btn type=button>Install app</button>
-				</div>
-				<h3>Touch Controls</h3>
-				<div class=row><label for=tc-opacity-range>Opacity</label> <input id=tc-opacity-range type=range max=80 min=10 step=5> <span id=tc-opacity-value style=opacity:.7;font-variant-numeric:tabular-nums;min-width:3em;text-align:right></span></div>
-				<h3>Display</h3>
-				<div class=row><label for=postfx-mode-select>Filter</label> <select id=postfx-mode-select>
-						<option value=off>Off</option>
-						<option value=crt-basic>CRT Basic</option>
-						<option value=crt-full>CRT Full</option>
-						<option value=lcd>LCD</option>
-						<option value=cmyk-halftone>CMYK Halftone</option>
-						<option value=ascii>ASCII</option>
-					</select></div>
-				<h3>Control Assignments</h3>
-				<table class=controls>
-					<thead>
-						<tr>
-							<th>GameCube</th>
-							<th>Keyboard</th>
-							<th>Gamepad</th>
-						</tr>
-					</thead>
-					<tbody id=controls-body></tbody>
-				</table>
-			</div>
-			<div class=menu-footer><span id=build-tag title="Build identifier">64e1f598e805</span> <button id=btn-close-menu type=button>Close</button></div>
-		</dialog>
-		<script>
+</head>
+<body>
+<div id="loading-text">LOADING...</div>
+<div id="container"><canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas><canvas aria-hidden="true" id="postfx-overlay"></canvas></div>
+<div id="status" style="display:none"></div>
+<div id="progress"></div>
+<div aria-hidden="true" id="loading-overlay"><svg aria-hidden="true" height="56" viewbox="0 0 24 24" width="56" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" fill="currentColor" r="0">
+<animate attributename="r" begin="0;SVGftllRbIv.begin+0.6s" calcmode="spline" dur="1.2s" fill="freeze" id="SVG0cdVlcnN" keysplines=".52,.6,.25,.99" values="0;11"></animate>
+<animate attributename="opacity" begin="0;SVGftllRbIv.begin+0.6s" calcmode="spline" dur="1.2s" fill="freeze" keysplines=".52,.6,.25,.99" values="1;0"></animate>
+</circle>
+<circle cx="12" cy="12" fill="currentColor" r="0">
+<animate attributename="r" begin="SVG0cdVlcnN.begin+0.6s" calcmode="spline" dur="1.2s" fill="freeze" id="SVGftllRbIv" keysplines=".52,.6,.25,.99" values="0;11"></animate>
+<animate attributename="opacity" begin="SVG0cdVlcnN.begin+0.6s" calcmode="spline" dur="1.2s" fill="freeze" keysplines=".52,.6,.25,.99" values="1;0"></animate>
+</circle>
+</svg></div>
+<div aria-hidden="true" id="touch-controls">
+<div id="tc-stick-zone">
+<div aria-hidden="true" id="tc-stick-hint"><svg viewbox="0 0 100 100">
+<circle class="hint-bg" cx="50" cy="50" r="46"></circle>
+<circle class="hint-knob" cx="50" cy="50" r="20"></circle>
+</svg></div>
+</div>
+<div id="tc-cstick-zone">
+<div aria-hidden="true" id="tc-cstick-hint"><svg viewbox="0 0 100 100">
+<circle class="hint-bg" cx="50" cy="50" r="46"></circle>
+<circle class="hint-knob" cx="50" cy="50" r="20"></circle><text class="tc-label" x="50" y="50">C</text>
+</svg></div>
+</div>
+<div aria-label="D-pad" class="tc-button" data-tc-dpad="1" id="tc-dpad"><svg viewbox="0 0 100 100">
+<path class="tc-bg" d="M36 4 H64 V36 H96 V64 H64 V96 H36 V64 H4 V36 H36 Z"></path>
+</svg></div>
+<div id="tc-dpad-cluster">
+<div aria-label="Up" class="tc-button" data-tc-button="0x0008" id="tc-dpad-up"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle>
+<polygon class="tc-arrow" points="50,43 60,57 40,57"></polygon>
+</svg></div>
+<div aria-label="Down" class="tc-button" data-tc-button="0x0004" id="tc-dpad-down"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle>
+<polygon class="tc-arrow" points="50,57 40,43 60,43"></polygon>
+</svg></div>
+<div aria-label="Left" class="tc-button" data-tc-button="0x0001" id="tc-dpad-left"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle>
+<polygon class="tc-arrow" points="43,50 57,40 57,60"></polygon>
+</svg></div>
+<div aria-label="Right" class="tc-button" data-tc-button="0x0002" id="tc-dpad-right"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle>
+<polygon class="tc-arrow" points="57,50 43,40 43,60"></polygon>
+</svg></div>
+</div>
+<div id="tc-face-cluster">
+<div aria-label="A" class="tc-button" data-tc-button="0x0100" id="tc-a"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle><text class="tc-label" x="50" y="52">A</text>
+</svg></div>
+<div aria-label="B" class="tc-button" data-tc-button="0x0200" id="tc-b"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle><text class="tc-label" x="50" y="52">B</text>
+</svg></div>
+<div aria-label="Y" class="tc-button" data-tc-button="0x0800" id="tc-y"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle><text class="tc-label" x="50" y="52">Y</text>
+</svg></div>
+<div aria-label="X" class="tc-button" data-tc-button="0x0400" id="tc-x"><svg viewbox="0 0 100 100">
+<circle class="tc-bg" cx="50" cy="50" r="46"></circle><text class="tc-label" x="50" y="52">X</text>
+</svg></div>
+</div>
+<div id="tc-shoulder-row">
+<div aria-label="L" class="tc-button" data-tc-button="0x0040" id="tc-l"><svg viewbox="0 0 100 50">
+<rect class="tc-bg" height="46" rx="14" width="96" x="2" y="2"></rect><text class="tc-label" x="50" y="27">L</text>
+</svg></div>
+<div aria-label="Start" class="tc-button" data-tc-button="0x1000" id="tc-start"><svg viewbox="0 0 100 50">
+<rect class="tc-bg" height="46" rx="14" width="96" x="2" y="2"></rect><text class="tc-label" x="50" y="27">START</text>
+</svg></div>
+<div aria-label="Z" class="tc-button" data-tc-button="0x0010" id="tc-z"><svg viewbox="0 0 100 50">
+<rect class="tc-bg" height="46" rx="14" width="96" x="2" y="2"></rect><text class="tc-label" x="50" y="27">Z</text>
+</svg></div>
+<div aria-label="R" class="tc-button" data-tc-button="0x0020" id="tc-r"><svg viewbox="0 0 100 50">
+<rect class="tc-bg" height="46" rx="14" width="96" x="2" y="2"></rect><text class="tc-label" x="50" y="27">R</text>
+</svg></div>
+</div>
+</div>
+<div aria-hidden="true" id="rom-picker">
+<h1>Slider – A Web Port of Animal Crossing (GameCube)</h1>
+<div id="webkit-warning" role="alert" style="display:none"><strong>Warning:</strong> Safari and <b>all</b> iOS browsers have a known memory leak (<a href="https://bugs.webkit.org/show_bug.cgi?id=304810" rel="noopener" target="_blank">WebKit bug 304810</a>) that causes this application's memory usage to climb until the page crashes after about a minute. For a stable session try a Chrome, Edge, or any other Chromium-based browser on a desktop OS or Chrome on Android.</div>
+<ol id="rom-instructions">
+<li>Although this is a port and not an emulator, no assets are distributed here. A disc image file of AC is still necessary to play the game for this reason.</li>
+<li>Thank you to <a href="https://github.com/ACreTeam/ac-decomp">ACreTeam</a> and <a href="https://github.com/flyngmt/ACGC-PC-Port">flyngmt</a> for their work on the decomp and PC port of ACGC, on which this project is built on top of.</li>
+<li>This software is provided as-is, without warranty of any kind. There's no guarantee it won't corrupt your save data at some point, so export your save data as often as necessary. I have not playtested the entire game, at this stage there are very likely to be places where the game crashes before you have an opportunity to save.</li>
+<li id="rom-install-item">This page is a PWA (Progressive Web App) which means you can save it locally on your device for an app-like experience with offline support. <button id="rom-install-btn" style="display:none" type="button">Install</button><span id="rom-install-hint" style="display:none">Tap your browser's <em>Share</em> menu and choose <strong>Add to Home Screen</strong>, </span><span id="rom-install-fallback">Open your browser's menu and press Install / Add to Home Screen.</span></li>
+</ol><label for="rom-file" id="rom-drop">
+<div class="primary">Drag a USA (GAFE01 Rev 0) disc image here, or click to select</div>
+<div class="secondary">.iso · .gcm · .ciso — stays on your device</div><input accept=".iso,.gcm,.ciso" id="rom-file" type="file"/>
+</label>
+<div id="rom-runtime-status"></div>
+<div id="rom-status"></div>
+<div id="rom-saves">
+<div class="rom-saves-heading">Memory card slots (optional)</div>
+<div class="rom-saves-help">Import an existing .gci save before booting. Ignore to start a fresh save.</div>
+<div class="rom-saves-grid">
+<div class="rom-saves-slot" data-slot="a">
+<div class="rom-saves-slot-label">Slot A</div>
+<div class="checking rom-saves-slot-state"><svg aria-hidden="true" class="status-spinner" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+<rect fill="currentColor" height="14" width="6" x="1" y="4">
+<animate attributename="opacity" begin="0;SVGslota89dAd4w.end-0.25s" dur="0.75s" fill="freeze" id="SVGslot9ovaHbIP" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".4" width="6" x="9" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.15s" dur="0.75s" fill="freeze" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".3" width="6" x="17" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.3s" dur="0.75s" fill="freeze" id="SVGslota89dAd4w" values="1;.2"></animate>
+</rect>
+</svg><span>Checking…</span></div>
+<div class="rom-saves-slot-actions"><button class="rom-saves-btn" id="rom-import-a" style="display:none" type="button">Import…</button> <button class="rom-saves-btn" id="rom-export-a" style="display:none" type="button">Export</button> <button class="rom-saves-btn rom-saves-btn-secondary" id="rom-remove-a" style="display:none" type="button">Delete</button></div>
+</div>
+<div class="rom-saves-slot" data-slot="b">
+<div class="rom-saves-slot-label">Slot B</div>
+<div class="checking rom-saves-slot-state"><svg aria-hidden="true" class="status-spinner" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+<rect fill="currentColor" height="14" width="6" x="1" y="4">
+<animate attributename="opacity" begin="0;SVGslota89dAd4w.end-0.25s" dur="0.75s" fill="freeze" id="SVGslot9ovaHbIP" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".4" width="6" x="9" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.15s" dur="0.75s" fill="freeze" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".3" width="6" x="17" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.3s" dur="0.75s" fill="freeze" id="SVGslota89dAd4w" values="1;.2"></animate>
+</rect>
+</svg><span>Checking…</span></div>
+<div class="rom-saves-slot-actions"><button class="rom-saves-btn" id="rom-import-b" style="display:none" type="button">Import…</button> <button class="rom-saves-btn" id="rom-export-b" style="display:none" type="button">Export</button> <button class="rom-saves-btn rom-saves-btn-secondary" id="rom-remove-b" style="display:none" type="button">Delete</button></div>
+</div>
+</div>
+<div class="rom-saves-status" id="rom-saves-status"></div><input accept=".gci" id="rom-saves-file" style="display:none" type="file"/>
+</div><button disabled="" id="rom-start" type="button">Start</button>
+</div><button aria-label="Toggle touch controls" id="tc-style-swap" title="Toggle touch controls (simplified ↔ full)" type="button"><svg aria-hidden="true" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.146 15.854a1.207 1.207 0 0 1 1.708 0l1.56 1.56A2 2 0 0 1 15 18.828V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.172a2 2 0 0 1 .586-1.414zM18.828 15a2 2 0 0 1-1.414-.586l-1.56-1.56a1.207 1.207 0 0 1 0-1.708l1.56-1.56A2 2 0 0 1 18.828 9H21a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1zm-12.242-.586A2 2 0 0 1 5.172 15H3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2.172a2 2 0 0 1 1.414.586l1.56 1.56a1.207 1.207 0 0 1 0 1.708zM9 3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2.172a2 2 0 0 1-.586 1.414l-1.56 1.56a1.207 1.207 0 0 1-1.708 0l-1.56-1.56A2 2 0 0 1 9 5.172z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg></button> <button aria-label="Toggle audio" id="audio-toggle" title="Mute / unmute audio" type="button"><svg aria-hidden="true" class="audio-icon-on" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298zM16 9a5 5 0 0 1 0 6m3.364 3.364a9 9 0 0 0 0-12.728" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg><svg aria-hidden="true" class="audio-icon-off" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 9a5 5 0 0 1 .95 2.293m2.414-5.657a9 9 0 0 1 1.889 9.96M2 2l20 20M7 7l-.587.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298V11M9.828 4.172A.686.686 0 0 1 11 4.657v.686" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg></button> <button aria-label="Toggle fullscreen" id="fullscreen-toggle" title="Enter fullscreen" type="button"><svg aria-hidden="true" class="fs-icon-expand" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="m15 15l6 6M15 9l6-6m0 13v5h-5m5-13V3h-5M3 16v5h5m-5 0l6-6M3 8V3h5m1 6L3 3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg><svg aria-hidden="true" class="fs-icon-collapse" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="m15 15l6 6m-6-6v4.8m0-4.8h4.8M9 19.8V15m0 0H4.2M9 15l-6 6M15 4.2V9m0 0h4.8M15 9l6-6M9 4.2V9m0 0H4.2M9 9L3 3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg></button> <button aria-label="Settings" id="settings-gear" title="Open settings" type="button"><svg aria-hidden="true" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0a2.34 2.34 0 0 0 3.319 1.915a2.34 2.34 0 0 1 2.33 4.033a2.34 2.34 0 0 0 0 3.831a2.34 2.34 0 0 1-2.33 4.033a2.34 2.34 0 0 0-3.319 1.915a2.34 2.34 0 0 1-4.659 0a2.34 2.34 0 0 0-3.32-1.915a2.34 2.34 0 0 1-2.33-4.033a2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path>
+<circle cx="12" cy="12" r="3"></circle>
+</g>
+</svg></button>
+<dialog aria-labelledby="settings-title" id="settings-menu">
+<div class="menu-body">
+<h2 id="settings-title">Settings</h2>
+<h3>Saves</h3>
+<div class="rom-saves-grid" id="settings-saves">
+<div class="rom-saves-slot" data-slot="a">
+<div class="rom-saves-slot-label">Slot A</div>
+<div class="checking rom-saves-slot-state"><svg aria-hidden="true" class="status-spinner" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+<rect fill="currentColor" height="14" width="6" x="1" y="4">
+<animate attributename="opacity" begin="0;SVGslota89dAd4w.end-0.25s" dur="0.75s" fill="freeze" id="SVGslot9ovaHbIP" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".4" width="6" x="9" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.15s" dur="0.75s" fill="freeze" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".3" width="6" x="17" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.3s" dur="0.75s" fill="freeze" id="SVGslota89dAd4w" values="1;.2"></animate>
+</rect>
+</svg><span>Checking…</span></div>
+<div class="rom-saves-slot-actions"><button class="rom-saves-btn" id="settings-import-a" style="display:none" type="button">Import…</button> <button class="rom-saves-btn" id="settings-export-a" style="display:none" type="button">Export</button> <button class="rom-saves-btn rom-saves-btn-secondary" id="settings-remove-a" style="display:none" type="button">Delete</button></div>
+</div>
+<div class="rom-saves-slot" data-slot="b">
+<div class="rom-saves-slot-label">Slot B</div>
+<div class="checking rom-saves-slot-state"><svg aria-hidden="true" class="status-spinner" height="14" viewbox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg">
+<rect fill="currentColor" height="14" width="6" x="1" y="4">
+<animate attributename="opacity" begin="0;SVGslota89dAd4w.end-0.25s" dur="0.75s" fill="freeze" id="SVGslot9ovaHbIP" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".4" width="6" x="9" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.15s" dur="0.75s" fill="freeze" values="1;.2"></animate>
+</rect>
+<rect fill="currentColor" height="14" opacity=".3" width="6" x="17" y="4">
+<animate attributename="opacity" begin="SVGslot9ovaHbIP.begin+0.3s" dur="0.75s" fill="freeze" id="SVGslota89dAd4w" values="1;.2"></animate>
+</rect>
+</svg><span>Checking…</span></div>
+<div class="rom-saves-slot-actions"><button class="rom-saves-btn" id="settings-import-b" style="display:none" type="button">Import…</button> <button class="rom-saves-btn" id="settings-export-b" style="display:none" type="button">Export</button> <button class="rom-saves-btn rom-saves-btn-secondary" id="settings-remove-b" style="display:none" type="button">Delete</button></div>
+</div>
+</div>
+<div class="rom-saves-status" id="save-status"></div><input accept=".gci" id="import-file" style="display:none" type="file"/>
+<div id="settings-install-section" style="display:none">
+<h3>Install</h3>
+<p class="settings-install-help">Save this game to your device for an app-like experience with offline support.</p><button id="settings-install-btn" type="button">Install app</button>
+</div>
+<h3>Touch Controls</h3>
+<div class="row"><label for="tc-opacity-range">Opacity</label> <input id="tc-opacity-range" max="80" min="10" step="5" type="range"/> <span id="tc-opacity-value" style="opacity:.7;font-variant-numeric:tabular-nums;min-width:3em;text-align:right"></span></div>
+<h3>Display</h3>
+<div class="row"><label for="postfx-mode-select">Filter</label> <select id="postfx-mode-select">
+<option value="off">Off</option>
+<option value="crt-basic">CRT Basic</option>
+<option value="crt-full">CRT Full</option>
+<option value="lcd">LCD</option>
+<option value="cmyk-halftone">CMYK Halftone</option>
+<option value="ascii">ASCII</option>
+</select></div>
+<h3>Control Assignments</h3>
+<table class="controls">
+<thead>
+<tr>
+<th>GameCube</th>
+<th>Keyboard</th>
+<th>Gamepad</th>
+</tr>
+</thead>
+<tbody id="controls-body"></tbody>
+</table>
+</div>
+<div class="menu-footer"><span id="build-tag" title="Build identifier">64e1f598e805</span> <button id="btn-close-menu" type="button">Close</button></div>
+</dialog>
+<script>
 			var statusEl = document.getElementById("status"),
 				progressEl = document.getElementById("progress");
 			! function() {
@@ -821,9 +819,9 @@
 				disconnectAudio(), suspendAudio()
 			})), window.addEventListener("focus", reconnectAudio)
 		</script>
-		<script src=shell-rom.js defer></script>
-		<script src=shell-saves.js defer></script>
-		<script>
+<script defer="" src="shell-rom.js"></script>
+<script defer="" src="shell-saves.js"></script>
+<script>
 			var menuEl = document.getElementById("settings-menu"),
 				gearEl = document.getElementById("settings-gear"),
 				saveStatus = document.getElementById("save-status"),
@@ -1006,15 +1004,14 @@
 				t.innerHTML = e
 			}()
 		</script>
-		<script src=nipplejs.min.js defer onload=window._nippleLoaded&&window._nippleLoaded()></script>
-		<script src=shell-touch.js defer></script>
-		<script src=shaders/postfx-vs.js defer></script>
-		<script src=shaders/postfx-fs-ascii.js defer></script>
-		<script src=shaders/postfx-fs-crt.js defer></script>
-		<script src=shaders/postfx-fs-lcd.js defer></script>
-		<script src=shaders/postfx-fs-halftone.js defer></script>
-		<script src=shell-postfx.js defer></script>
-		<script src=index.js async></script>
-	</body>
-
-	</html>
+<script defer="" onload="window._nippleLoaded&amp;&amp;window._nippleLoaded()" src="nipplejs.min.js"></script>
+<script defer="" src="shell-touch.js"></script>
+<script defer="" src="shaders/postfx-vs.js"></script>
+<script defer="" src="shaders/postfx-fs-ascii.js"></script>
+<script defer="" src="shaders/postfx-fs-crt.js"></script>
+<script defer="" src="shaders/postfx-fs-lcd.js"></script>
+<script defer="" src="shaders/postfx-fs-halftone.js"></script>
+<script defer="" src="shell-postfx.js"></script>
+<script async="" src="index.js"></script>
+</body>
+</html>

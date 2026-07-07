@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 
-|
-
-
-<!-- Ultimate Game Stash file--> 
+<!-- Ultimate Game Stash file-->
 <!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
-
-
 <html lang="en-us">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  <base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/escaperoad2city/">
-  <meta charset="utf-8" />
-  <title>Escape Road</title>
-  <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/escaperoad2city/"/>
+<meta charset="utf-8"/>
+<title>Escape Road</title>
+<style>
     html, body { background: #000; width: 100%; height: 100%; overflow: hidden; padding: 0; margin: 0; }
     #gameContainer { position: absolute; }
     #gameContainer canvas { position: absolute; }
   </style>
 </head>
 <body>
-
-  <script id="gmsoft-jssdk" src="gmsoftsdk_v5.js"></script>
-
-  <div id="gameContainer" style="display:none;">
-    <canvas id="unity-canvas"></canvas>
-  </div>
-
-  <div id="loadingBar" style="color:white; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); font-family:Arial;">
+<script id="gmsoft-jssdk" src="gmsoftsdk_v5.js"></script>
+<div id="gameContainer" style="display:none;">
+<canvas id="unity-canvas"></canvas>
+</div>
+<div id="loadingBar" style="color:white; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); font-family:Arial;">
     loading... <span id="pct">0%</span>
-  </div>
+</div>
 <script>
   function firebaseLogEvent(event_name) {
     console.log('firebaseLogEvent (stubbed):', event_name);
@@ -41,7 +32,7 @@
     console.log('firebaseSetUserProperties (stubbed):', props);
   }
 </script>
-       //script>
+       //script&gt;
       window.fileMergerConfig = {
         files: [
           { name: 'escape-road-city-2-v25022604.data.unityweb', parts: 2 },
@@ -49,10 +40,10 @@
         basePath: 'Build/',
         debug: true
       };
-    script>
+    script&gt;
 
-    //cript src="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/merge.js"></script>
-  <script>
+    //cript src="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/merge.js"&gt;
+<script>
     var canvas = document.getElementById("unity-canvas");
     var container = document.getElementById("gameContainer");
     var loadingBar = document.getElementById("loadingBar");

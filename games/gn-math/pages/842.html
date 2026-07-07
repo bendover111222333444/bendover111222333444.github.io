@@ -1,8 +1,9 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+
+<html><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
 <body>
-  <base href="https://cdn.jsdelivr.net/gh/web-ports/pvz@latest/">
-  <style>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/pvz@latest/"/>
+<style>
     #loading-text {
   font-weight: bold;
   background: linear-gradient(
@@ -27,21 +28,10 @@
   100% { background-position: 0% 50%; }
 }
   </style>
-<div id="loading-text"
-    style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
+<div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
   </div>
-<canvas id="canvas" width="800" height="600" style="display:block; outline:0"></canvas>
-
-<textarea
-  id="pvz-soft-keyboard"
-  style="position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; pointer-events:none; font-size:16px"
-  autocapitalize="off"
-  autocomplete="off"
-  autocorrect="off"
-  enterkeyhint="done"
-  spellcheck="false"
-></textarea>
-
+<canvas height="600" id="canvas" style="display:block; outline:0" width="800"></canvas>
+<textarea autocapitalize="off" autocomplete="off" autocorrect="off" enterkeyhint="done" id="pvz-soft-keyboard" spellcheck="false" style="position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; pointer-events:none; font-size:16px"></textarea>
 <script>
   let _res, _rej;
   window.moduleReadyPromise = new Promise((r, e) => { _res = r; _rej = e; });
@@ -55,7 +45,6 @@
     printErr: console.warn,
   };
 </script>
-
 <script>
 var loadingText = document.querySelector("#loading-text");
     let totalBytes = 0;
@@ -165,6 +154,5 @@ var loadingText = document.querySelector("#loading-text");
     loadingText.remove();
   })();
 </script>
-
 </body>
 </html>

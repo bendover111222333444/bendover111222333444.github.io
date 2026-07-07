@@ -1,11 +1,11 @@
 
-|<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<style>
     html, body {
       height: 100%;
       margin: 0;
@@ -74,26 +74,20 @@
 </style>
 </head>
 <body>
-
-  <iframe 
-    src="https://padlet.com/embed/uuavmnorxe50h4bf" 
-    allowfullscreen
-    sandbox="allow-scripts allow-same-origin allow-forms allow-popups">
-  </iframe>
-
-  <div id="overlay" class="overlay">
-    <div class="popup">
-      <h2>Warning!</h2>
-      <p>
-        There might be some nasty pictures in the comments<br>
-        There is moderation but its the automated one so be careful<br><br>
+<iframe allowfullscreen="" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src="https://padlet.com/embed/uuavmnorxe50h4bf">
+</iframe>
+<div class="overlay" id="overlay">
+<div class="popup">
+<h2>Warning!</h2>
+<p>
+        There might be some nasty pictures in the comments<br/>
+        There is moderation but its the automated one so be careful<br/><br/>
         Click <strong>OK</strong> to continue.
       </p>
-      <button id="okBtn">OK</button>
-    </div>
-  </div>
-
-  <script>
+<button id="okBtn">OK</button>
+</div>
+</div>
+<script>
     const overlay = document.getElementById('overlay');
     const okBtn = document.getElementById('okBtn');
     okBtn.addEventListener('click', () => {

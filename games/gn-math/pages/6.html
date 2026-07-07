@@ -1,15 +1,25 @@
 
 <!DOCTYPE html>
+
 <html lang="en-us">
-   <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-      <meta charset="utf-8">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-      <title>Block Blast Puzzle</title>
-      <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/genizy/bl/TemplateData/favicon.ico">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/genizy/bl/TemplateData/style.css">
-      <link rel="manifest" href="https://cdn.jsdelivr.net/gh/genizy/bl/manifest.webmanifest">
-   <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<script>
+         let displayMode = 'browser';
+         let isPwa = false;
+         const mqStandAlone = '(display-mode: fullscreen)';
+         if (navigator.standalone || window.matchMedia(mqStandAlone).matches) {
+           displayMode = 'fullscreen';
+           isPwa = true
+         }
+         gtag('event', 'pwa_check', {'pwa': isPwa});
+      </script>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Block Blast Puzzle</title>
+<link href="https://cdn.jsdelivr.net/gh/genizy/bl/TemplateData/favicon.ico" rel="shortcut icon"/>
+<link href="https://cdn.jsdelivr.net/gh/genizy/bl/TemplateData/style.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/genizy/bl/manifest.webmanifest" rel="manifest"/>
+<style>
 
 
 
@@ -17,18 +27,18 @@
 
 </style>
 </head>
-   <body>
-      <div id="unity-container">
-         <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1"></canvas>
-         <div id="unity-loading-bar">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-               <div id="unity-progress-bar-full"></div>
-            </div>
-         </div>
-         <div id="unity-warning"> </div>
-      </div>
-      <script>
+<body>
+<div id="unity-container">
+<canvas height="1920" id="unity-canvas" tabindex="-1" width="1080"></canvas>
+<div id="unity-loading-bar">
+<div id="unity-logo"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+<div id="unity-warning"> </div>
+</div>
+<script>
          window.addEventListener("load", function () {
            if ("serviceWorker" in navigator) {
              navigator.serviceWorker.register("https://cdn.jsdelivr.net/gh/genizy/bl/ServiceWorker.js");
@@ -89,12 +99,12 @@
          };
          document.body.appendChild(script);
       </script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5221630201042895" crossorigin="anonymous"></script>
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5221630201042895" data-ad-slot="3988294629" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5221630201042895"></script>
+<ins class="adsbygoogle" data-ad-client="ca-pub-5221630201042895" data-ad-format="auto" data-ad-slot="3988294629" data-full-width-responsive="true" style="display:block"></ins>
+<script>
          (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-   
+
 
 </body>
 </html>

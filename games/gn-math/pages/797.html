@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+
 <!-- port by boko -->
 <html lang="en">
-	<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-		<base href="https://cdn.jsdelivr.net/gh/InsayneBoko/fih-port@latest/port/">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>fih</title>
-		<style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/InsayneBoko/fih-port@latest/port/"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0" name="viewport"/>
+<title>fih</title>
+<style>
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
@@ -93,12 +93,11 @@ body {
 	z-index: 1;
 }
 		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="fih.icon.png" />
-<link rel="apple-touch-icon" href="fih.apple-touch-icon.png"/>
-
-	</head>
-	<body>
-		<script>
+<link href="fih.icon.png" id="-gd-engine-icon" rel="icon" type="image/png"/>
+<link href="fih.apple-touch-icon.png" rel="apple-touch-icon"/>
+</head>
+<body>
+<script>
 			const originalFetch = window.fetch;
 
 function mergeFiles(fileParts) {
@@ -147,22 +146,19 @@ Promise.all([
     window.godotRunStart = run;
 });
 		</script>
-		<canvas id="canvas">
+<canvas id="canvas">
 			Your browser does not support the canvas tag.
 		</canvas>
-
-		<noscript>
+<noscript>
 			Your browser does not support JavaScript.
 		</noscript>
-
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="fih.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
-
-		<script src="fih.js"></script>
-		<script>
+<div id="status">
+<img alt="" class="show-image--true fullsize--true use-filter--true" id="status-splash" src="fih.png"/>
+<progress id="status-progress"></progress>
+<div id="status-notice"></div>
+</div>
+<script src="fih.js"></script>
+<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"fih","experimentalVK":false,"fileSizes":{"fih.pck":25411476,"fih.wasm":37685705},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
@@ -267,6 +263,5 @@ const engine = new Engine(GODOT_CONFIG);
 	}
 }());
 		</script>
-	</body>
+</body>
 </html>
-

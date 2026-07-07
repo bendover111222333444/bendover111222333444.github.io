@@ -1,15 +1,12 @@
 
 <!DOCTYPE html>
-<html>
 
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  
-  
-  <meta charset="utf-8">
-  <base href="https://cdn.jsdelivr.net/gh/genizy/sprunki/">
-  <title>Sprunki</title>
-  <style>
+<html>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<base href="https://cdn.jsdelivr.net/gh/genizy/sprunki/"/>
+<title>Sprunki</title>
+<style>
     body {
       color: #ffffff;
       font-family: sans-serif;
@@ -173,15 +170,14 @@
 
 
 </style>
-  <meta name="theme-color" content="#000000">
+<meta content="#000000" name="theme-color"/>
 </head>
-
 <body>
-  <div id="app"></div>
-  <div id="launch" class="screen" hidden title="Click to start">
-    <div class="green-flag"> <svg viewBox="0 0 16.63 17.5" width="42" height="44">
-        <defs>
-          <style>
+<div id="app"></div>
+<div class="screen" hidden="" id="launch" title="Click to start">
+<div class="green-flag"> <svg height="44" viewbox="0 0 16.63 17.5" width="42">
+<defs>
+<style>
             .cls-1,
             .cls-2 {
               fill: #4cbf56;
@@ -194,25 +190,25 @@
               stroke-width: 1.5px;
             }
           </style>
-        </defs>
-        <path class="cls-1" d="M.75,2A6.44,6.44,0,0,1,8.44,2h0a6.44,6.44,0,0,0,7.69,0V12.4a6.44,6.44,0,0,1-7.69,0h0a6.44,6.44,0,0,0-7.69,0" />
-        <line class="cls-2" x1="0.75" y1="16.75" x2="0.75" y2="0.75" />
-      </svg> </div>
-  </div>
-  <div id="loading" class="screen"> <noscript>Enable JavaScript</noscript>
-    <div class="progress-bar-outer">
-      <div class="progress-bar-inner" id="loading-inner"></div>
-    </div>
-  </div>
-  <div id="error" class="screen" hidden>
-    <h1>Error</h1>
-    <details>
-      <summary id="error-message"></summary>
-      <p id="error-stack"></p>
-    </details>
-  </div>
-  <script src="script.js"></script>
-  <script>
+</defs>
+<path class="cls-1" d="M.75,2A6.44,6.44,0,0,1,8.44,2h0a6.44,6.44,0,0,0,7.69,0V12.4a6.44,6.44,0,0,1-7.69,0h0a6.44,6.44,0,0,0-7.69,0"></path>
+<line class="cls-2" x1="0.75" x2="0.75" y1="16.75" y2="0.75"></line>
+</svg> </div>
+</div>
+<div class="screen" id="loading"> <noscript>Enable JavaScript</noscript>
+<div class="progress-bar-outer">
+<div class="progress-bar-inner" id="loading-inner"></div>
+</div>
+</div>
+<div class="screen" hidden="" id="error">
+<h1>Error</h1>
+<details>
+<summary id="error-message"></summary>
+<p id="error-stack"></p>
+</details>
+</div>
+<script src="script.js"></script>
+<script>
     const appElement = document.getElementById('app');
     const launchScreen = document.getElementById('launch');
     const loadingScreen = document.getElementById('loading');
@@ -295,7 +291,7 @@
       handleError(e);
     }
   </script>
-  <script>
+<script>
     const getProjectData = (function() {
       const storage = scaffolding.storage;
       storage.onprogress = (total, loaded) => {
@@ -325,7 +321,7 @@
       });
     })();
   </script>
-  <script>
+<script>
     const run = async () => {
       const projectData = await getProjectData();
       await scaffolding.loadProject(projectData);
@@ -347,5 +343,4 @@
 
 
 </body>
-
 </html>

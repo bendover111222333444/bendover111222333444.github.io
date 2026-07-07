@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-	<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-		<base href="https://cdn.jsdelivr.net/gh/genizy/google-class@main/bart-blast/">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>BART BLAST (INDEV VERSION)</title>
-		<style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/genizy/google-class@main/bart-blast/"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0" name="viewport"/>
+<title>BART BLAST (INDEV VERSION)</title>
+<style>
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
@@ -117,30 +117,27 @@ body {
   100% { background-position: 0% 50%; }
 }
 		</style>
-		<div id="loading-text" style="color: white; font-family: cursive; font-size: 48px; text-align: center; margin-top: 20px;">LOADING...</div>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
-<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<link rel="manifest" href="index.manifest.json">
-
-	</head>
-	<body>
-		<canvas id="canvas">
+<div id="loading-text" style="color: white; font-family: cursive; font-size: 48px; text-align: center; margin-top: 20px;">LOADING...</div>
+<link href="index.icon.png" id="-gd-engine-icon" rel="icon" type="image/png"/>
+<link href="index.apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="index.manifest.json" rel="manifest"/>
+</head>
+<body>
+<canvas id="canvas">
 			Your browser does not support the canvas tag.
 		</canvas>
-
-		<noscript>
+<noscript>
 			Your browser does not support JavaScript.
 		</noscript>
-
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
-		<script>
+<div id="status">
+<img alt="" class="show-image--true fullsize--true use-filter--true" id="status-splash" src="index.png"/>
+<progress id="status-progress"></progress>
+<div id="status-notice"></div>
+</div>
+<script>
 			window.loadingtexta = document.getElementById("loading-text");
 		</script>
-		<script>
+<script>
 			const originalFetch = window.fetch;
 
     let totalBytes = 0;
@@ -204,8 +201,8 @@ Promise.all([
     window.godotrunfunction();
 });
 		</script>
-		<script src="index.js"></script>
-		<script>
+<script src="index.js"></script>
+<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":50031416,"index.wasm":36145869},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
@@ -311,5 +308,5 @@ window.godotrunfunction = function() {
 	}
 };
 		</script>
-	</body>
+</body>
 </html>

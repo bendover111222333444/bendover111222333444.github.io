@@ -1,20 +1,20 @@
 
 <!DOCTYPE html>
+
 <html>
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/genizy/code-editor@main/">
-    <title>gn code editor</title>
-    <link rel="stylesheet" href="styles/index.css">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/genizy/code-editor@main/"/>
+<title>gn code editor</title>
+<link href="styles/index.css" rel="stylesheet"/>
 </head>
 <body>
-    <div id="editor-list">
-        <h1>gn code editor</h1>
-        <h2>Either edit python code or html code.</h2>
-        <button onclick="htmleditor()">HTML Editor</button>
-        <button onclick="pythoneditor()">Python Editor</button>
-    </div>
-    <script>
+<div id="editor-list">
+<h1>gn code editor</h1>
+<h2>Either edit python code or html code.</h2>
+<button onclick="htmleditor()">HTML Editor</button>
+<button onclick="pythoneditor()">Python Editor</button>
+</div>
+<script>
         const singlefile = true;
         function htmleditor() {
             fetch("html.html").then(res => res.text()).then(html => {
@@ -54,7 +54,7 @@
             });
         }
     </script>
-    <footer>
-        <p>Made for: <a href="https://gn-math.dev" target="_blank">gn-math.dev</a></p>
-    </footer>
-</html>
+<footer>
+<p>Made for: <a href="https://gn-math.dev" target="_blank">gn-math.dev</a></p>
+</footer>
+</body></html>

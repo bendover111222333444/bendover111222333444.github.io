@@ -1,85 +1,67 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  
-  
-  
-     <base href="https://cdn.jsdelivr.net/gh/genizy/osu@aabb0e62f0ebfbf4f472c9e86be0b3e7cf4540bc/">
-  <meta charset="utf-8" />
-  <title>WebOsu 2.0!</title>
-  <meta name="description"
-    content="Play WebOsu – A browser-based rhythm game inspired by osu!std. Experience fast-paced gameplay with an extensive beatmap library. No downloads, play free online now!">
-  <link rel="canonical" href="http://webosu-2.github.io/" />
-  <link rel="stylesheet" href="style/picnic.min.css" />
-  <link rel="stylesheet" type="text/css" href="style/main.css" />
-  <!-- <link href="//fonts.googleapis.com/css?family=Exo+2:400,600italic" rel="stylesheet" type="text/css"> -->
-  <link rel="stylesheet" type="text/css" href="style/font.css" />
-  <link rel="icon" href="favicon.png" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <script src="scripts/launchgame.js"></script>
-  <script src="scripts/downloader.js"></script>
-  <script src="scripts/addbeatmaplist.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/jsloader.js"></script>
-  <script src="scripts/lib/localforage.min.js"></script>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/genizy/osu@aabb0e62f0ebfbf4f472c9e86be0b3e7cf4540bc/"/>
+<meta charset="utf-8"/>
+<title>WebOsu 2.0!</title>
+<meta content="Play WebOsu – A browser-based rhythm game inspired by osu!std. Experience fast-paced gameplay with an extensive beatmap library. No downloads, play free online now!" name="description"/>
+<link href="http://webosu-2.github.io/" rel="canonical"/>
+<link href="style/picnic.min.css" rel="stylesheet"/>
+<link href="style/main.css" rel="stylesheet" type="text/css"/>
+<!-- <link href="//fonts.googleapis.com/css?family=Exo+2:400,600italic" rel="stylesheet" type="text/css"> -->
+<link href="style/font.css" rel="stylesheet" type="text/css"/>
+<link href="favicon.png" rel="icon"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<script src="scripts/launchgame.js"></script>
+<script src="scripts/downloader.js"></script>
+<script src="scripts/addbeatmaplist.js"></script>
+<script src="scripts/settings.js"></script>
+<script src="scripts/jsloader.js"></script>
+<script src="scripts/lib/localforage.min.js"></script>
 <style>
-
 </style>
 </head>
-
 <body>
-  <div class="game-area" id="game-area" hidden></div>
-
-  <div class="pause-menu" id="pause-menu" hidden>
-    <div class="paused-title">paused</div>
-    <div class="button-list">
-      <div class="pausebutton continue" id="pausebtn-continue">
-        <div class="inner">Continue</div>
-      </div>
-      <div class="pausebutton retry" id="pausebtn-retry">
-        <div class="inner">Retry</div>
-      </div>
-      <div class="pausebutton quit" id="pausebtn-quit">
-        <div class="inner">Quit</div>
-      </div>
-    </div>
-  </div>
-
-  <nav id="main-nav">
-    <div class="nav-link">
-      <a class="brand" onclick="indexHtml()">WebOsu 2.0!</a>
-      <a class="pseudo button" onclick="latestHtml()">Latest</a>
-      <a class="pseudo button"" onclick="popularHtml()">Popular</a>
-      <a class="pseudo button" onclick="genresHtml()">Genres</a>
-    </div>
-    <div class="nav-search">
-      <form action="javascript:searchHtml()">
-        <input type="text" name="q" placeholder="Beatmap name or Set ID" />
-        <input type="image" class="search-button" src="research.svg" />
-      </form>
-    </div>
-    <div class="nav-tool">
-      <a class="pseudo button" onclick="favouritesHtml()">Favourites</a>
-      <a class="pseudo button" onclick="faqHtml()">FAQ</a>
-      <a class="pseudo button" onclick="settingsHtml()">Settings</a>
-      <a
-        onclick="document.documentElement.requestFullscreen();"
-        class="pseudo button"
-        >Go to full screen</a
-      >
-    </div>
-  </nav>
-
-  <div class="main-page" id="main-page">
-  </div>
-  
-
-  <script>
+<div class="game-area" hidden="" id="game-area"></div>
+<div class="pause-menu" hidden="" id="pause-menu">
+<div class="paused-title">paused</div>
+<div class="button-list">
+<div class="pausebutton continue" id="pausebtn-continue">
+<div class="inner">Continue</div>
+</div>
+<div class="pausebutton retry" id="pausebtn-retry">
+<div class="inner">Retry</div>
+</div>
+<div class="pausebutton quit" id="pausebtn-quit">
+<div class="inner">Quit</div>
+</div>
+</div>
+</div>
+<nav id="main-nav">
+<div class="nav-link">
+<a class="brand" onclick="indexHtml()">WebOsu 2.0!</a>
+<a class="pseudo button" onclick="latestHtml()">Latest</a>
+<a "="" class="pseudo button" onclick="popularHtml()">Popular</a>
+<a class="pseudo button" onclick="genresHtml()">Genres</a>
+</div>
+<div class="nav-search">
+<form action="javascript:searchHtml()">
+<input name="q" placeholder="Beatmap name or Set ID" type="text"/>
+<input class="search-button" src="research.svg" type="image"/>
+</form>
+</div>
+<div class="nav-tool">
+<a class="pseudo button" onclick="favouritesHtml()">Favourites</a>
+<a class="pseudo button" onclick="faqHtml()">FAQ</a>
+<a class="pseudo button" onclick="settingsHtml()">Settings</a>
+<a class="pseudo button" onclick="document.documentElement.requestFullscreen();">Go to full screen</a>
+</div>
+</nav>
+<div class="main-page" id="main-page">
+</div>
+<script>
 function indexHtml() {
     document.getElementById("main-page").innerHTML = `<div class="column left"> </div> <div class="main-content column"> <div class="announcement"> Announcement: This site is still under development. If you encounter any issues, read <a onclick="faqHtml()">the FAQ</a>. Now ad-free again! </div> <br /> <div class="index-area"> <a onclick="genRandomList()" class="more" style="cursor:pointer;">Get new random Beatmaps</a> <h2>Random Beatmaps<h2> <hr /> <div class="beatmap-list" id="beatmap-list-random"> </div> </div> <div class="index-area"> <h2>Latest Beatmaps</h2> <a class="more" onclick="latestHtml()">View more latest beatmaps</a> <hr /> <div class="beatmap-list" id="beatmap-list-new"> </div> </div> <div class="index-area"> <h2>Favourited Beatmaps</h2> <a class="more" onclick="favouritesHtml()">View more favourited beatmaps</a> <hr /> <div class="beatmap-list" id="beatmap-list-liked"> </div> </div> <div class="index-area"> <h2>Popular Beatmaps</h2> <a class="more" onclick="popularHtml()">View more popular beatmaps</a> <hr /> <div class="beatmap-list" id="beatmap-list-hot"> </div> </div> <footer id="footer"> <div style="text-align: center;"> <h3 class="text">Supports touchscreen devices.</h3> <h3 class="text"> Version 0.4.0, see our <a href="https://github.com/WebOsu-2/webosu-2.github.io">Github page.</a> </h3> <h3 class="text"> Our beatmap provider is SayoBot </h3> </div> </footer> </div> <div class="column right"> </div> <div class="statuslines" id="statuslines"> <div class="progress" id="script-progress"> Scripts <div class="lds-dual-ring"></div> </div> <div class="progress" id="skin-progress"> Skin <div class="lds-dual-ring"></div> </div> <div class="progress" id="sound-progress"> Hitsounds <div class="lds-dual-ring"></div> </div> </div>`
     // recently played
@@ -274,11 +256,8 @@ function settingsHtml() {
 }
 indexHtml();
   </script>
-
 </body>
-
 </html>
-
 <!-- attribution -->
 <!-- play icon made by https://www.flaticon.com/authors/those-icons -->
 <!-- search icon made by https://www.flaticon.com/authors/good-ware -->

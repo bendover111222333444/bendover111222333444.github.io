@@ -1,13 +1,10 @@
 
-|
 <!DOCTYPE html>
+
 <html>
-
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  <meta charset="utf-8">
-  <title>2048</title>
-
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<title>2048</title>
 <style>
 @import url(fonts/clear-sans.css);
 html, body {
@@ -775,67 +772,60 @@ hr {
 </style>
 </head>
 <body>
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">2048</h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
-      </div>
-    </div>
-
-    <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
-    </div>
-
-    <div class="game-container">
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
-        </div>
-      </div>
-
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-      </div>
-
-      <div class="tile-container">
-
-      </div>
-    </div>
-
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-    </p>
-  </div>
-
-  <script>
+<div class="container">
+<div class="heading">
+<h1 class="title">2048</h1>
+<div class="scores-container">
+<div class="score-container">0</div>
+<div class="best-container">0</div>
+</div>
+</div>
+<div class="above-game">
+<p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+<a class="restart-button">New Game</a>
+</div>
+<div class="game-container">
+<div class="game-message">
+<p></p>
+<div class="lower">
+<a class="keep-playing-button">Keep going</a>
+<a class="retry-button">Try again</a>
+</div>
+</div>
+<div class="grid-container">
+<div class="grid-row">
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+</div>
+<div class="grid-row">
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+</div>
+<div class="grid-row">
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+</div>
+<div class="grid-row">
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+<div class="grid-cell"></div>
+</div>
+</div>
+<div class="tile-container">
+</div>
+</div>
+<p class="game-explanation">
+<strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+</p>
+</div>
+<script>
   Function.prototype.bind = Function.prototype.bind || function (target) {
   var self = this;
   return function (args) {
@@ -846,7 +836,7 @@ hr {
   };
 };
   </script>
-  <script>
+<script>
   (function () {
   if (typeof window.Element === "undefined" ||
       "classList" in document.documentElement) {
@@ -919,7 +909,7 @@ hr {
   });
 })();
   </script>
-  <script>
+<script>
   (function () {
   var lastTime = 0;
   var vendors = ['webkit', 'moz'];
@@ -949,7 +939,7 @@ hr {
   }
 }());
   </script>
-  <script>
+<script>
   
 function KeyboardInputManager() {
   this.events = {};
@@ -1096,7 +1086,7 @@ KeyboardInputManager.prototype.bindButtonPress = function (selector, fn) {
   button.addEventListener(this.eventTouchend, fn.bind(this));
 };
   </script>
-  <script>
+<script>
   function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
@@ -1237,7 +1227,7 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-over");
 };
   </script>
-  <script>
+<script>
   function Grid(size, previousState) {
   this.size = size;
   this.cells = previousState ? this.fromState(previousState) : this.empty();
@@ -1356,7 +1346,7 @@ Grid.prototype.serialize = function () {
   };
 };
   </script>
-  <script>
+<script>
   function Tile(position, value) {
   this.x                = position.x;
   this.y                = position.y;
@@ -1385,7 +1375,7 @@ Tile.prototype.serialize = function () {
   };
 };
   </script>
-  <script>
+<script>
   window.fakeStorage = {
   _data: {},
 
@@ -1450,7 +1440,7 @@ LocalStorageManager.prototype.clearGameState = function () {
   this.storage.removeItem(this.gameStateKey);
 };
   </script>
-  <script>
+<script>
 function GameManager(size, InputManager, Actuator, StorageManager) {
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
@@ -1724,7 +1714,7 @@ GameManager.prototype.positionsEqual = function (first, second) {
   return first.x === second.x && first.y === second.y;
 };  
   </script>
-  <script>
+<script>
   // Wait till the browser is ready to render the game (avoids glitches)
 window.requestAnimationFrame(function () {
   new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
@@ -1733,5 +1723,4 @@ window.requestAnimationFrame(function () {
 
 
 </body>
-
 </html>

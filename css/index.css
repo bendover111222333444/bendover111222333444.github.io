@@ -58,6 +58,30 @@ body {
 
 }
 
+.forwardScroll {
+
+    animation: scrollForward 5s ease-in-out infinite
+
+}
+
+.backwardScroll {
+
+    animation: scrollBackward 5s ease-in-out infinite
+
+}
+
+.fadeInClass {
+
+    animation: fadeIn 0.2s ease-in
+
+}
+
+.fadeOutClass {
+
+    animation: fadeOut 0.2s ease-out
+
+}
+
 #content {
 
     position: fixed;
@@ -71,15 +95,24 @@ body {
     inset: 0;
     opacity: 0.08;
     background-position: 0 0;
-    background-image: url("../images/background.png");
+    background-image: url("/images/background.png");
     background-repeat: repeat;
     background-size: 100vw 100vh;
     z-index: -9999;
-    animation: scroll 20s linear infinite
+    animation: scrollForward 20s linear infinite;
 
 }
 
-@keyframes scroll {
+@keyframes scrollForward {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100vw;
+    }
+}
+
+@keyframes scrollBackward {
     from {
         background-position: 0 0;
     }
@@ -88,12 +121,21 @@ body {
     }
 }
 
-@keyframes fade {
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
     to {
         opacity: 1;
+    };
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     };
 }
 

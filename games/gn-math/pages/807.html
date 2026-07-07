@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/web-ports/slendytubbies@latest/2d/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Slendytubbies 2D</title>
-    <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/slendytubbies@latest/2d/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Unity WebGL Player | Slendytubbies 2D</title>
+<style>
       html, body {
         background-color: black;
         margin: 0;
@@ -61,12 +61,11 @@
         100% { background-position: 0% 50%; }
       }
     </style>
-  </head>
-  <body>
-    <div id="loading-text">LOADING...</div>
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-
-    <script type="text/javascript">
+</head>
+<body>
+<div id="loading-text">LOADING...</div>
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+<script type="text/javascript">
       var Module = {
         TOTAL_MEMORY: 1073741824,
         errorhandler: null,
@@ -76,8 +75,7 @@
         memUrl: "Release/Build.mem"
       };
     </script>
-
-    <script type="text/javascript">
+<script type="text/javascript">
       (async function () {
         const loadingText = document.getElementById("loading-text");
         const TOTAL_MB = (16.96 + 19.9).toFixed(2);
@@ -174,5 +172,5 @@
         }
       })();
     </script>
-  </body>
+</body>
 </html>

@@ -1,80 +1,71 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Blackjack Pro</title>
-    <!-- Add some nice fonts from Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Blackjack/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Blackjack/styles.css">
-  </head>
-  <body>
-
-    <header id="top-bar">
-      <div class="logo">BLACKJACK</div>
-      <div id="bankroll-container">
-        <div class="stat-box">
-          <span class="label">BANKROLL</span>
-          <span class="value">$<span id="bankroll">1000</span></span>
-        </div>
-        <div class="stat-box bet-box">
-          <span class="label">CURRENT BET</span>
-          <span class="value">$<span id="current-bet">50</span></span>
-        </div>
-      </div>
-    </header>
-
-    <div id="table">
-      <div class="table-half dealer-half">
-        <div id="dealer-score" class="score">Dealer Score: <span>0</span></div>
-        <div class="cards-wrapper">
-          <div id="deck">
-            <div class="back"></div>
-          </div>
-          <div class="container" id="dealer"></div>
-        </div>
-      </div>
-
-      <div class="border-line"></div>
-
-      <div class="table-half player-half">
-        <div class="cards-wrapper">
-          <div class="container" id="player"></div>
-        </div>
-        <div id="player-score" class="score">Your Score: <span>0</span></div>
-      </div>
-    </div>
-
-    <div id="panel">
-      <div id="status">Place your bet and press DEAL</div>
-
-      <div class="game-controls">
-        <button id="deal" class="btn blue" type="button">DEAL</button>
-        <button id="hit" class="btn green" type="button" disabled>HIT</button>
-        <button id="stand" class="btn red" type="button" disabled>STAND</button>
-        <button id="double" class="btn yellow" type="button" disabled>DOUBLE</button>
-      </div>
-
-      <div id="betting-controls">
-        <button id="bet-decrease" type="button">-</button>
-        <span>ADJUST BET</span>
-        <button id="bet-increase" type="button">+</button>
-      </div>
-
-    </div>
-
-    <div id="black-market" style="display: none;">
-      <h3>BLACK MARKET</h3>
-      <p>Desperate times call for desperate measures.</p>
-      <button id="bailout" class="btn purple" type="button">SELL KIDNEY ($500)</button>
-    </div>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Blackjack/blackjack.js"></script>
-    <script type="text/javascript">
+<head>
+<meta charset="utf-8"/>
+<title>Blackjack Pro</title>
+<!-- Add some nice fonts from Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&amp;family=Montserrat:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Blackjack/reset.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Blackjack/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header id="top-bar">
+<div class="logo">BLACKJACK</div>
+<div id="bankroll-container">
+<div class="stat-box">
+<span class="label">BANKROLL</span>
+<span class="value">$<span id="bankroll">1000</span></span>
+</div>
+<div class="stat-box bet-box">
+<span class="label">CURRENT BET</span>
+<span class="value">$<span id="current-bet">50</span></span>
+</div>
+</div>
+</header>
+<div id="table">
+<div class="table-half dealer-half">
+<div class="score" id="dealer-score">Dealer Score: <span>0</span></div>
+<div class="cards-wrapper">
+<div id="deck">
+<div class="back"></div>
+</div>
+<div class="container" id="dealer"></div>
+</div>
+</div>
+<div class="border-line"></div>
+<div class="table-half player-half">
+<div class="cards-wrapper">
+<div class="container" id="player"></div>
+</div>
+<div class="score" id="player-score">Your Score: <span>0</span></div>
+</div>
+</div>
+<div id="panel">
+<div id="status">Place your bet and press DEAL</div>
+<div class="game-controls">
+<button class="btn blue" id="deal" type="button">DEAL</button>
+<button class="btn green" disabled="" id="hit" type="button">HIT</button>
+<button class="btn red" disabled="" id="stand" type="button">STAND</button>
+<button class="btn yellow" disabled="" id="double" type="button">DOUBLE</button>
+</div>
+<div id="betting-controls">
+<button id="bet-decrease" type="button">-</button>
+<span>ADJUST BET</span>
+<button id="bet-increase" type="button">+</button>
+</div>
+</div>
+<div id="black-market" style="display: none;">
+<h3>BLACK MARKET</h3>
+<p>Desperate times call for desperate measures.</p>
+<button class="btn purple" id="bailout" type="button">SELL KIDNEY ($500)</button>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Blackjack/blackjack.js" type="text/javascript"></script>
+<script type="text/javascript">
       //initialise the game
       BlackjackJS.init();
     </script>
-  </body>
+</body>
 </html>

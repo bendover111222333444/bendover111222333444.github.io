@@ -1,7 +1,7 @@
 # ==================================================================
 # CONFIGURATION VARIABLES (TOP OF FILE)
 # ==================================================================
-BASE_CDN_URL = "https://ubghyper.github.io/GameList.github.io/"
+BASE_CDN_URL = "https://gn-math.dev/"
 TARGET_DIR = r"C:\Users\liamf\Downloads\GitHub\pctopc-client\bendover111222333444-new-site\python-tools\html"
 # ==================================================================
 

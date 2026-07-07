@@ -1,8 +1,7 @@
 
-|<html><head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<html><head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
 <title>PICO-8 Cartridge</title>
-<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta content="width=device-width, user-scalable=no" name="viewport"/>
 <script type="text/javascript">
 
 	// Default shell for PICO-8 0.2.2 (includes @weeble's gamepad mod 1.0)
@@ -948,8 +947,7 @@
 	}
 
 </script>
-
-<STYLE TYPE="text/css">
+<style type="text/css">
 <!--
 .p8_menu_button{
 	opacity:0.3;
@@ -1005,8 +1003,7 @@ canvas{
 }
 
 -->
-</STYLE>
-
+</style>
 <style>
 
 
@@ -1015,74 +1012,49 @@ canvas{
 
 </style>
 </head>
-
 <body style="padding:0px; margin:0px; background-color:#22222200; color:#ccc">
 <div id="body_0"> <!-- hide this when playing in mobile (p8_touch_detected) so that elements don't affect layout -->
-
-
 <!-- Add any content above the cart here -->
-
-
 <div id="p8_frame_0" style="max-width:800px; max-height:800px; margin:auto;"> <!-- double function: limit size, and display only this div for touch devices -->
 <div id="p8_frame" style="display:flex; width:100%; max-width:95vw; height:100vw; max-height:95vh; margin:auto;">
-
-	<div id="p8_menu_buttons_touch" style="position:absolute; width:100%; z-index:10; left:0px;">
-		<div class="p8_menu_button" id="p8b_full"  style="float:left;margin-left:10px" onClick="p8_give_focus(); p8_request_fullscreen();"></div>
-		<div class="p8_menu_button" id="p8b_sound" style="float:left;margin-left:10px" onClick="p8_give_focus(); p8_create_audio_context(); Module.pico8ToggleSound();"></div>
-		<div class="p8_menu_button" id="p8b_close" style="float:right; margin-right:10px" onClick="p8_close_cart();"></div>
-	</div>
-
-	<div id="p8_container"
-		style="margin:auto; display:table;"
-		onclick="p8_create_audio_context(); p8_run_cart();">
-
-		<div id="p8_playarea" style="display:none; margin:auto;
+<div id="p8_menu_buttons_touch" style="position:absolute; width:100%; z-index:10; left:0px;">
+<div class="p8_menu_button" id="p8b_full" onclick="p8_give_focus(); p8_request_fullscreen();" style="float:left;margin-left:10px"></div>
+<div class="p8_menu_button" id="p8b_sound" onclick="p8_give_focus(); p8_create_audio_context(); Module.pico8ToggleSound();" style="float:left;margin-left:10px"></div>
+<div class="p8_menu_button" id="p8b_close" onclick="p8_close_cart();" style="float:right; margin-right:10px"></div>
+</div>
+<div id="p8_container" onclick="p8_create_audio_context(); p8_run_cart();" style="margin:auto; display:table;">
+<div id="p8_playarea" style="display:none; margin:auto;
 				-webkit-user-select:none; -moz-user-select: none; user-select: none; -webkit-touch-callout:none;
 		">
-
-			<div  id="touch_controls_background"
-				  style=" pointer-events:none; display:none; background-color:#000;
+<div id="touch_controls_background" style=" pointer-events:none; display:none; background-color:#000;
 						 position:fixed; top:0px; left:0px; border:0; width:100vw; height:100vh">
-				&nbsp
+				 
 			</div>
-
-			<div style="display:flex; position:relative">
-				<!-- pointer-events turned off for mobile in p8_update_layout because need for desktop mouse -->
-				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault();" >
-				</canvas>
-				<div class=p8_menu_buttons id="p8_menu_buttons" style="margin-left:125px;">
-					<div class="p8_menu_button" style="position:absolute; bottom:355px" id="p8b_controls" onClick="p8_give_focus(); Module.pico8ToggleControlMenu();"></div>					
-					<div class="p8_menu_button" style="position:absolute; bottom:320px" id="p8b_pause" onClick="p8_give_focus(); Module.pico8TogglePaused(); p8_update_layout_hash = -22;"></div>
-					<div class="p8_menu_button" style="position:absolute; bottom:285px" id="p8b_sound" onClick="p8_give_focus(); p8_create_audio_context(); Module.pico8ToggleSound();"></div>
-					<div class="p8_menu_button" style="position:absolute; bottom:250px" id="p8b_full" onClick="p8_give_focus(); p8_request_fullscreen();"></div>
-				</div>
-			</div>
-
-
-			<!-- display after first layout update -->
-			<div  id="touch_controls_gfx"
-				  style=" pointer-events:none; display:table; 
+<div style="display:flex; position:relative">
+<!-- pointer-events turned off for mobile in p8_update_layout because need for desktop mouse -->
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault();">
+</canvas>
+<div class="p8_menu_buttons" id="p8_menu_buttons" style="margin-left:125px;">
+<div class="p8_menu_button" id="p8b_controls" onclick="p8_give_focus(); Module.pico8ToggleControlMenu();" style="position:absolute; bottom:355px"></div>
+<div class="p8_menu_button" id="p8b_pause" onclick="p8_give_focus(); Module.pico8TogglePaused(); p8_update_layout_hash = -22;" style="position:absolute; bottom:320px"></div>
+<div class="p8_menu_button" id="p8b_sound" onclick="p8_give_focus(); p8_create_audio_context(); Module.pico8ToggleSound();" style="position:absolute; bottom:285px"></div>
+<div class="p8_menu_button" id="p8b_full" onclick="p8_give_focus(); p8_request_fullscreen();" style="position:absolute; bottom:250px"></div>
+</div>
+</div>
+<!-- display after first layout update -->
+<div id="touch_controls_gfx" style=" pointer-events:none; display:table; 
 						 position:fixed; top:0px; left:0px; border:0; width:100vw; height:100vh">
-
-					<img src="" id="controls_right_panel" style="position:absolute; opacity:0.5;">
-					<img src="" id="controls_left_panel" style="position:absolute;  opacity:0.5;">
-						
-			
-			</div> <!-- touch_controls_gfx -->
-
-			<!-- used for clipboard access & keyboard input; displayed and used by PICO-8 only once needed. can be safely removed if clipboard / key presses not needed. -->
-			<!-- (needs to be inside p8_playarea so that it still works under Chrome when fullscreened) -->
-			<!-- 0.2.5: added "display:none"; pico8.js shows on demand to avoid mac osx accent character selector // https://www.lexaloffle.com/bbs/?tid=47743 -->
-
-			<textarea id="codo_textarea" class="emscripten" style="display:none; position:absolute; left:-9999px; height:0px; overflow:hidden"></textarea>
-
-		</div> <!--p8_playarea -->
-
-	</div> <!-- p8_container -->
-
+<img id="controls_right_panel" src="" style="position:absolute; opacity:0.5;"/>
+<img id="controls_left_panel" src="" style="position:absolute;  opacity:0.5;"/>
+</div> <!-- touch_controls_gfx -->
+<!-- used for clipboard access & keyboard input; displayed and used by PICO-8 only once needed. can be safely removed if clipboard / key presses not needed. -->
+<!-- (needs to be inside p8_playarea so that it still works under Chrome when fullscreened) -->
+<!-- 0.2.5: added "display:none"; pico8.js shows on demand to avoid mac osx accent character selector // https://www.lexaloffle.com/bbs/?tid=47743 -->
+<textarea class="emscripten" id="codo_textarea" style="display:none; position:absolute; left:-9999px; height:0px; overflow:hidden"></textarea>
+</div> <!--p8_playarea -->
+</div> <!-- p8_container -->
 </div> <!-- p8_frame -->
 </div> <!-- p8_frame_0 size limit -->
-
 <script type="text/javascript">
 
 	p8_update_layout();
@@ -1125,14 +1097,7 @@ canvas{
 
 
 </script>
-
-
-
 <!-- Add content below the cart here -->
-
-
-
-
 </div> <!-- body_0 -->
 
 

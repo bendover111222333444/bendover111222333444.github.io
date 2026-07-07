@@ -1,27 +1,27 @@
 
 <!DOCTYPE html>
+
 <html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/freebuisness/assets@main/347/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | SpiderDoll</title>
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="finnalstyle.css">
-    <script src="https://cdn.jsdelivr.net/gh/freebuisness/assets@main/merge.js"></script>
-  <body>
-    <div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;">LOADING...</div>
-    <div id="unity-container" class="unity-desktop" hidden>
-      <canvas id="unity-canvas"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-    </div>
-    <script>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/freebuisness/assets@main/347/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Unity WebGL Player | SpiderDoll</title>
+<link href="favicon.ico" rel="shortcut icon"/>
+<link href="finnalstyle.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/gh/freebuisness/assets@main/merge.js"></script>
+<body>
+<div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;">LOADING...</div>
+<div class="unity-desktop" hidden="" id="unity-container">
+<canvas id="unity-canvas"></canvas>
+<div id="unity-loading-bar">
+<div id="unity-logo"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+</div>
+<script>
       Promise.all([
           window.mergeFiles(window.getParts("Build.data", 1, 2)),
           window.mergeFiles(window.getParts("Build.wasm", 1, 2)),
@@ -67,10 +67,10 @@
       document.body.appendChild(script);
       });
     </script>
-  
+
 
 </body>
-</html>
+</head></html>
 <style>
 
 

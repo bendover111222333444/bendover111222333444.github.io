@@ -1,15 +1,15 @@
 
-|<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en-us">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
 <title>Sonic 2 Community's Cut</title>
-<base href="https://cdn.jsdelivr.net/gh/waycrosspublicmedia/assets/sonic2/">
-<link rel="icon" type="x-icon" href="icon.png">
-<link rel="stylesheet" href="fonts/stylesheet.css">
+<base href="https://cdn.jsdelivr.net/gh/waycrosspublicmedia/assets/sonic2/"/>
+<link href="icon.png" rel="icon" type="x-icon"/>
+<link href="fonts/stylesheet.css" rel="stylesheet"/>
 <style>
   html, body { height: 100%; margin: 0; padding: 0; background:black; }
   body { font-family: arial; background-image: url("./bg.gif"); background-repeat: repeat; }
@@ -23,20 +23,16 @@
 </style>
 </head>
 <body>
-
-<div id="status" class="emscripten">Downloading...</div>
-<progress id="progress" class="emscripten" value="0" max="100" hidden></progress>
-<canvas id="canvas" class="emscripten" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
-
+<div class="emscripten" id="status">Downloading...</div>
+<progress class="emscripten" hidden="" id="progress" max="100" value="0"></progress>
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
 <div id="container">
-    <img src="./sonic2.png" style="max-width:31rem; width:100%;" /><br>
-    <img src="./wait.gif" style="max-width:31rem; width:100%;" />
+<img src="./sonic2.png" style="max-width:31rem; width:100%;"/><br/>
+<img src="./wait.gif" style="max-width:31rem; width:100%;"/>
 </div>
-
 <script src="./s2cx.js"></script>
 <script src="./md5.min.js"></script>
 <script src="./jquery-3.5.1.slim.min.js"></script>
-
 <script>
     // Keep a safe reference (if any)
     const oldSetStatus = Module.setStatus ? Module.setStatus.bind(Module) : null;
@@ -109,8 +105,5 @@ Module.setStatus = function (text) {
         }
     }
 </script>
-
-
-
 </body>
 </html>

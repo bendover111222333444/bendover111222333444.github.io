@@ -1,13 +1,11 @@
 
-|
 <html lang="en">
-<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/off/">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EasyRPG Player</title>
-  <style>
+<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/off/"/>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EasyRPG Player</title>
+<style>
     :root { 
       --color-gray: hsl(0, 0%, 55%);
       --controls-size: 10vh;
@@ -124,40 +122,33 @@
   
 </style>
 </head>
-
 <body>
-  <div id="controls">
-    <button id="controls-fullscreen" class="unselectable">
-      <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
-        <path d="M13.5 13.5H10m3.5 0V10m0 3.5l-4-4m.5-8h3.5m0 0V5m0-3.5l-4 4M5 1.5H1.5m0 0V5m0-3.5l4 4m-4 4.5v3.5m0 0H5m-3.5 0l4-4" stroke="currentColor"></path>
-      </svg>
-    </button>
-  </div>
-
-  <div id="status"></div>
-
-  <div id="viewport">
-    <canvas id="canvas" tabindex="-1" class="unselectable"></canvas>
-
-    <div id="dpad" class="unselectable">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-        <path id="dpad-up" data-key="ArrowUp" data-key-code="38" d="M48,5.8C48,2.5,45.4,0,42,0H29.9C26.6,0,24,2.4,24,5.8V24h24V5.8z" />
-        <path id="dpad-right" data-key="ArrowRight" data-key-code="39" d="M66.2,24H48v24h18.2c3.3,0,5.8-2.7,5.8-6V29.9C72,26.5,69.5,24,66.2,24z" />
-        <path id="dpad-down" data-key="ArrowDown" data-key-code="40" d="M24,66.3c0,3.3,2.6,5.7,5.9,5.7H42c3.3,0,6-2.4,6-5.7V48H24V66.3z" />
-        <path id="dpad-left" data-key="ArrowLeft" data-key-code="37" d="M5.7,24C2.4,24,0,26.5,0,29.9V42c0,3.3,2.3,6,5.7,6H24V24H5.7z" />
-        <rect id="dpad-center" x="24" y="24" width="24" height="24" />
-      </svg>
-    </div>
-
-    <div id="apad" class="unselectable">
-      <div id="apad-escape" data-key="Escape" data-key-code="27"></div>
-      <div id="apad-enter" data-key="Enter" data-key-code="13"></div>
-    </div>
-  </div>
-
-  <script async type="text/javascript" src="index.js"></script>
-
-  <script>
+<div id="controls">
+<button class="unselectable" id="controls-fullscreen">
+<svg fill="none" height="25" viewbox="0 0 15 15" width="25" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.5 13.5H10m3.5 0V10m0 3.5l-4-4m.5-8h3.5m0 0V5m0-3.5l-4 4M5 1.5H1.5m0 0V5m0-3.5l4 4m-4 4.5v3.5m0 0H5m-3.5 0l4-4" stroke="currentColor"></path>
+</svg>
+</button>
+</div>
+<div id="status"></div>
+<div id="viewport">
+<canvas class="unselectable" id="canvas" tabindex="-1"></canvas>
+<div class="unselectable" id="dpad">
+<svg viewbox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<path d="M48,5.8C48,2.5,45.4,0,42,0H29.9C26.6,0,24,2.4,24,5.8V24h24V5.8z" data-key="ArrowUp" data-key-code="38" id="dpad-up"></path>
+<path d="M66.2,24H48v24h18.2c3.3,0,5.8-2.7,5.8-6V29.9C72,26.5,69.5,24,66.2,24z" data-key="ArrowRight" data-key-code="39" id="dpad-right"></path>
+<path d="M24,66.3c0,3.3,2.6,5.7,5.9,5.7H42c3.3,0,6-2.4,6-5.7V48H24V66.3z" data-key="ArrowDown" data-key-code="40" id="dpad-down"></path>
+<path d="M5.7,24C2.4,24,0,26.5,0,29.9V42c0,3.3,2.3,6,5.7,6H24V24H5.7z" data-key="ArrowLeft" data-key-code="37" id="dpad-left"></path>
+<rect height="24" id="dpad-center" width="24" x="24" y="24"></rect>
+</svg>
+</div>
+<div class="unselectable" id="apad">
+<div data-key="Escape" data-key-code="27" id="apad-escape"></div>
+<div data-key="Enter" data-key-code="13" id="apad-enter"></div>
+</div>
+</div>
+<script async="" src="index.js" type="text/javascript"></script>
+<script>
     const hasTouchscreen = window.matchMedia('(hover: none), (pointer: coarse)').matches;
     const preventNativeKeys = ['ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft', ' ', 'F12'];
     const keys = new Map();
@@ -375,11 +366,8 @@
 
     updateTouchControlsVisibility();
   </script>
-
-  <!-- Cloudflare Pages Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a837c0816ac144c5929cb1ab51480813"}'></script><!-- Cloudflare Pages Analytics -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"3bf3beb03f86414fa50674c23a365c50","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-
+<!-- Cloudflare Pages Analytics -->
+<script data-cf-beacon='{"token": "a837c0816ac144c5929cb1ab51480813"}' defer="" src="https://static.cloudflareinsights.com/beacon.min.js"></script><!-- Cloudflare Pages Analytics -->
+<script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"3bf3beb03f86414fa50674c23a365c50","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' defer="" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"></script>
 </body>
-
 </html>

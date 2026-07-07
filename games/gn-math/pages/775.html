@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
-	<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-		<base href="https://cdn.jsdelivr.net/gh/67-Factory/web-ports@main/stupidbartbash/">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-		<title>bartbash</title>
-		<style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/67-Factory/web-ports@main/stupidbartbash/"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0" name="viewport"/>
+<title>bartbash</title>
+<style>
 html, body, #canvas {
 	margin: 0;
 	padding: 0;
@@ -97,23 +97,20 @@ body {
 #status-splash.show-image--false { display: none; }
 #status-splash.use-filter--false { image-rendering: pixelated; }
 		</style>
-	</head>
-	<body>
-		<canvas id="canvas">
+</head>
+<body>
+<canvas id="canvas">
 			Your browser does not support the canvas tag.
 		</canvas>
-
-		<noscript>
+<noscript>
 			Your browser does not support JavaScript.
 		</noscript>
-
-		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
-			<div id="status-notice"></div>
-		</div>
-
-		<script src="index.js"></script>
+<div id="status">
+<img alt="" class="show-image--true fullsize--true use-filter--true" id="status-splash" src="index.png"/>
+<progress id="status-progress"></progress>
+<div id="status-notice"></div>
+</div>
+<script src="index.js"></script>
 <script>
 async function fetchAndMergeFile(baseUrl, filename, parts) {
   const chunks = [];
@@ -262,5 +259,5 @@ initializeGame().catch(err => {
   document.getElementById('status-notice').style.display = 'block';
 });
 </script>
-	</body>
+</body>
 </html>

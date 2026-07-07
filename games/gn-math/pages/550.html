@@ -1,15 +1,15 @@
 
-|<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en-us">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-<meta charset="utf-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Sonic 3 A.I.R.</title>
-<base href="https://cdn.jsdelivr.net/gh/waycrosspublicmedia/assets/sonic3/">
-<link rel="apple-touch-icon" sizes="256x256" href="icon.png">
-<link rel="manifest" href="manifest.json">
+<base href="https://cdn.jsdelivr.net/gh/waycrosspublicmedia/assets/sonic3/"/>
+<link href="icon.png" rel="apple-touch-icon" sizes="256x256"/>
+<link href="manifest.json" rel="manifest"/>
 <style>
 body {background:black;color:white;font-family:arial;margin:0;padding:none;overflow:hidden;-webkit-user-select:none;}
 .emscripten {padding-right:0;margin-left:auto;margin-right:auto;display:block;}
@@ -150,15 +150,15 @@ function onDownloadsComplete(){
 </head>
 <body>
 <div id="startup"><h2>Loading...</h2></div>
-<div class="spinner pageUI hidden" id=spinner></div>
-<div class="emscripten pageUI hidden" id=status>Downloading...</div>
-<div class="emscripten pageUI hidden"><progress hidden id=progress max=100 value=0></progress></div>
+<div class="spinner pageUI hidden" id="spinner"></div>
+<div class="emscripten pageUI hidden" id="status">Downloading...</div>
+<div class="emscripten pageUI hidden"><progress hidden="" id="progress" max="100" value="0"></progress></div>
 <div class="restart hidden">
-    <button type="button" onclick="location.reload()">Restart Game</button> 
+<button onclick="location.reload()" type="button">Restart Game</button>
 </div>
-<div id="root" class="hidden"></div>
-<div id="gameView" class="emscripten_border">
-    <canvas class="emscripten" id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+<div class="hidden" id="root"></div>
+<div class="emscripten_border" id="gameView">
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
 </div>
 <script>
 var statusElement = document.getElementById("status"),
@@ -209,7 +209,6 @@ window.onerror=function(e){
     Module.setStatus=function(e){ e && Module.printErr("[post-exception status] "+e) };
 }
 </script>
-<script async src="sonic3air_web.js"></script>
-
+<script async="" src="sonic3air_web.js"></script>
 </body>
 </html>

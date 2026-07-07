@@ -1,16 +1,14 @@
 
-|
 <html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/New25Said/new25said.github.io@0d8f7bc91a54202f225dc78152649433108637ef/games/cave%20story/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Cave Story Web</title>
-	<meta content="Cave Story Web" property="og:title" />
-	<meta content="The freeware build of Cave Story 100% playable in the browser." property="og:description" />
-	<meta content="#000000" data-react-helmet="true" name="theme-color" />
-    <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/New25Said/new25said.github.io@0d8f7bc91a54202f225dc78152649433108637ef/games/cave%20story/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Cave Story Web</title>
+<meta content="Cave Story Web" property="og:title"/>
+<meta content="The freeware build of Cave Story 100% playable in the browser." property="og:description"/>
+<meta content="#000000" data-react-helmet="true" name="theme-color"/>
+<style>
         /* --- VARIABLES CSS (Soporte Dark Mode Extremo) --- */
         :root {
             /* Modo Base (Oscuro Absoluto/OLED) */
@@ -189,26 +187,19 @@
         /* ... (El resto de @keyframes y media queries para móviles permanecen igual) ... */
     
 </style>
-  </head>
-  <body>
-    <div class="main-content-container">
-    
-    <figure id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>EMSCRIPTEN</strong></center></figure>
-    
-    <div class="emscripten" id="status">DOWNLOADING...</div>
-    <div class="emscripten">
-      <progress value="0" max="100" id="progress" hidden=1></progress>  
-    </div>
-
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-	  
-    <div class="fullscreen-button-container">
-        <button onclick="goFullScreen();">FULLSCREEN</button>
-    </div>
-
- 
-
-    </div> <script type='text/javascript'>
+</head>
+<body>
+<div class="main-content-container">
+<figure id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>EMSCRIPTEN</strong></center></figure>
+<div class="emscripten" id="status">DOWNLOADING...</div>
+<div class="emscripten">
+<progress hidden="1" id="progress" max="100" value="0"></progress>
+</div>
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+<div class="fullscreen-button-container">
+<button onclick="goFullScreen();">FULLSCREEN</button>
+</div>
+</div> <script type="text/javascript">
       function goFullScreen(){
         var canvas = document.getElementById("canvas");
         if(canvas.requestFullScreen)
@@ -303,7 +294,6 @@
       document.getElementById('canvas').addEventListener('click', resumeAudio);
       document.addEventListener('keydown', resumeAudio);
     </script>
-    <script async type="text/javascript" src="CSE2.js"></script>
-  
+<script async="" src="CSE2.js" type="text/javascript"></script>
 </body>
 </html>

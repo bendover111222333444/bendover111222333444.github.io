@@ -6,3 +6,17 @@ export function buttonTemplate(name, html, cover) {
     </button>`
 
 }
+
+export function tapeTemplate(forward) {
+
+    if (forward === true) {
+
+        return `<div class="tape forwardScroll"></div>`   
+
+    } else {
+
+        return `<div class="tape backwardScroll"></div>`  
+
+    }
+
+}

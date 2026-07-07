@@ -1,14 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en-us">
 
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/genizy/web-port@master/ultrakill/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | ULTRAKILL</title>
-    <style>
+<html lang="en-us">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/genizy/web-port@master/ultrakill/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Unity WebGL Player | ULTRAKILL</title>
+<style>
         html,
         body {
             margin: 0;
@@ -32,12 +31,11 @@
 
 </style>
 </head>
-
 <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <div id='loading-text' style="color: black; font-family: cursive; font-size: 48px; text-align: center; margin-top: 20px;">LOADING...</div>
-    <canvas id="unity-canvas" tabindex="-1" hidden></canvas>
-    <script src="Build/ultrakill.loader.js"></script>
-    <script>
+<div id="loading-text" style="color: black; font-family: cursive; font-size: 48px; text-align: center; margin-top: 20px;">LOADING...</div>
+<canvas hidden="" id="unity-canvas" tabindex="-1"></canvas>
+<script src="Build/ultrakill.loader.js"></script>
+<script>
         var canvas = document.querySelector("#unity-canvas");
         if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
             // Mobile device style: fill the whole browser client area with the game canvas:
@@ -110,5 +108,4 @@
 
 
 </body>
-
 </html>

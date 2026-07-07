@@ -1,15 +1,15 @@
 
 <!DOCTYPE html>
+
 <html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/web-ports/mindwave@latest/">
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>GXC Game</title>
-    <link rel="stylesheet" href="style.css">
-  <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/mindwave@latest/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport"/>
+<title>GXC Game</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
 
 
 
@@ -17,51 +17,42 @@
 
 </style>
 </head>
-
-  <body>
-    <div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING... </div>
-    <canvas
-      class="emscripten"
-      id="canvas"
-      oncontextmenu="event.preventDefault()"
-      tabindex="-1"
-    >
-    </canvas>
-    <div id="pauseMenuContainer" hidden>
-      <div id="pauseMenuBorder">
-        <div id="pauseMenu">
-          <button id="resumeButton" onclick="resume()">
+<body>
+<div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING... </div>
+<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1">
+</canvas>
+<div hidden="" id="pauseMenuContainer">
+<div id="pauseMenuBorder">
+<div id="pauseMenu">
+<button id="resumeButton" onclick="resume()">
             Resume
           </button>
-          <button id="quitButton" onclick="quitIfSupported()">
+<button id="quitButton" onclick="quitIfSupported()">
             Quit
           </button>
-        </div>
-        </div>
-    </div>
-    <div class="loading">
-      <div class="spinner" id="spinner"></div>
-      <div class="emscripten" id="status">Downloading...</div>
-
-      <progress value="0" max="100" id="progress" hidden="1"></progress>
-      <img id="QRCode" class="qrCode" src="runner.svg" alt="URL QR Code" hidden="1"></img>
-      <img id="QR2Code" class="qrCode" src="runnerLocal.svg" alt="URL QR2 Code" hidden="1"></img>
-    </div>
-
-    <div class="wallpaper-container" id="wallpaper-container" style="display: none">
-      <button class="output-button" onclick="toggleElement('wallpaper-config-iframe')">
+</div>
+</div>
+</div>
+<div class="loading">
+<div class="spinner" id="spinner"></div>
+<div class="emscripten" id="status">Downloading...</div>
+<progress hidden="1" id="progress" max="100" value="0"></progress>
+<img alt="URL QR Code" class="qrCode" hidden="1" id="QRCode" src="runner.svg"/>
+<img alt="URL QR2 Code" class="qrCode" hidden="1" id="QR2Code" src="runnerLocal.svg"/>
+</div>
+<div class="wallpaper-container" id="wallpaper-container" style="display: none">
+<button class="output-button" onclick="toggleElement('wallpaper-config-iframe')">
         Toggle configurator
       </button>
-    </div>
-    <!-- The wallpaper config is displayed in an iframe to make it possible to use keyboard for entering values (it's consumed by
+</div>
+<!-- The wallpaper config is displayed in an iframe to make it possible to use keyboard for entering values (it's consumed by
         the runner in the original document). -->
-    <iframe class="floating-control" id="wallpaper-config-iframe" src="about:blank"></iframe>
-
-    <div id="message-container">
-      <div id="messages">
-      </div>
-    </div>
-    <script>
+<iframe class="floating-control" id="wallpaper-config-iframe" src="about:blank"></iframe>
+<div id="message-container">
+<div id="messages">
+</div>
+</div>
+<script>
       let loadingtext = document.getElementById("loading-text");
       let doneparts = 0;
       function mergeFiles(fileParts) {
@@ -150,7 +141,7 @@
       loadingtext.remove();
         });
     </script>
-  
+
 
 </body>
 </html>

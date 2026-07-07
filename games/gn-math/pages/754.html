@@ -1,15 +1,14 @@
 
-|<!doctypehtml>
-    <html lang=en-us>
+<!DOCTYPE tml>
 
-    <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-      <base href="https://cdn.jsdelivr.net/gh/genizy/mcpeweb@latest/">
-        <meta charset=utf-8>
-        <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name=viewport>
-        <title>Minecraft</title>
-        <link href=manifest.json rel=manifest>
-        <style>
+<html lang="en-us">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/genizy/mcpeweb@latest/"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport"/>
+<title>Minecraft</title>
+<link href="manifest.json" rel="manifest"/>
+<style>
             body,
             html {
                 margin: 0;
@@ -31,10 +30,9 @@
                 height: 100vh
             }
         </style>
-    </head>
-
-    <body><canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
-        <script>
+</head>
+<body><canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+<script>
             var Module = {
                 canvas: document.getElementById("canvas")
             };
@@ -54,7 +52,7 @@
                 })
             }()
         </script>
-        <script>
+<script>
             "serviceWorker" in navigator && window.addEventListener("load", (() => {
                 navigator.serviceWorker.register("./sw.js").then((e => {
                     console.log("ServiceWorker registration successful with scope: ", e.scope)
@@ -63,8 +61,6 @@
                 }))
             }))
         </script>
-        <script async src=index.js></script>
-    </body>
-
-    </html>
-
+<script async="" src="index.js"></script>
+</body>
+</html>

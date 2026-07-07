@@ -1,35 +1,34 @@
 
 <!DOCTYPE html>
+
 <html lang="en-us">
-<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/game-inside-game/">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Unity WebGL Player | Game Inside a Game</title>
-  <link rel="shortcut icon" href="TemplateData/favicon.ico">
-  <link rel="stylesheet" href="TemplateData/style2.css">
-    <style>
+<base href="https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/game-inside-game/"/>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Unity WebGL Player | Game Inside a Game</title>
+<link href="TemplateData/favicon.ico" rel="shortcut icon"/>
+<link href="TemplateData/style2.css" rel="stylesheet"/>
+<style>
     body {
       overflow: hidden;
     };
   </style>
 </head>
-
 <body>
-  <div id="unity-container" class="unity-desktop">
-    <canvas id="unity-canvas"></canvas>
-    <div id="unity-loading-bar">
-      <div id="unity-logo"></div>
-      <div id="unity-progress-bar-empty">
-        <div id="unity-progress-bar-full"></div>
-      </div>
-    </div>
-    <div id="unity-footer">
-      <div id="unity-fullscreen-button"></div>
-    </div>
-  </div>
-  <script>
+<div class="unity-desktop" id="unity-container">
+<canvas id="unity-canvas"></canvas>
+<div id="unity-loading-bar">
+<div id="unity-logo"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+<div id="unity-footer">
+<div id="unity-fullscreen-button"></div>
+</div>
+</div>
+<script>
     var buildUrl = "Build";
     var loaderUrl = buildUrl + "/webv0_2d.loader.js"; 
     var config = {
@@ -74,6 +73,4 @@
     document.body.appendChild(script);
   </script>
 </body>
-
 </html>
-

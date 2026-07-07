@@ -1,16 +1,15 @@
 
 <!DOCTYPE html>
-<html lang="en-us">
 
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/web-ports/needy-streamer-overload@latest/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Windose</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <style>
+<html lang="en-us">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/needy-streamer-overload@latest/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Windose</title>
+<link href="TemplateData/favicon.ico" rel="shortcut icon"/>
+<link href="TemplateData/style.css" rel="stylesheet"/>
+<style>
         :root {
             --edurocks-pink: #EB458B;
             --edurocks-pink-dark: #BB1C76;
@@ -199,23 +198,22 @@
 
 </style>
 </head>
-
 <body>
-    <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
-        <div id="unity-loading-bar">
-            <div id="edurocks-splash">
-                <img src="image.png" alt="EDUrocks" class="edurocks-logo">
-                <div class="edurocks-title">An EDUrocks Group Port</div>
-                <div class="edurocks-subtitle">Loading Needy Streamer Overload...</div>
-                <div id="unity-progress-bar-empty">
-                    <div id="unity-progress-bar-full"></div>
-                </div>
-            </div>
-        </div>
-        <div id="unity-warning"> </div>
-    </div>
-    <script>
+<div class="unity-desktop" id="unity-container">
+<canvas height="720" id="unity-canvas" tabindex="-1" width="1280"></canvas>
+<div id="unity-loading-bar">
+<div id="edurocks-splash">
+<img alt="EDUrocks" class="edurocks-logo" src="image.png"/>
+<div class="edurocks-title">An EDUrocks Group Port</div>
+<div class="edurocks-subtitle">Loading Needy Streamer Overload...</div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+</div>
+<div id="unity-warning"> </div>
+</div>
+<script>
         var loadingText = document.querySelector(".edurocks-subtitle");
         let totalBytes = 0;
         let loadedBytes = 0;
@@ -473,5 +471,4 @@
 
 
 </body>
-
 </html>

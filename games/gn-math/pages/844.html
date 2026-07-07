@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/genizy/cg-rip@main/hammer-2/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  </head>
-  <body style="margin:0;padding:0" class="noselect">
-    <div id="loading-text" style="color: black; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;">LOADING...</div>
-    <canvas id="unity-canvas"
-      style="position:fixed;top:0;left:0;width:100%;height:100%;outline:none"></canvas>
 
-    <script>
+<html lang="en-us">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/genizy/cg-rip@main/hammer-2/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body class="noselect" style="margin:0;padding:0">
+<div id="loading-text" style="color: black; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;">LOADING...</div>
+<canvas id="unity-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;outline:none"></canvas>
+<script>
     const SPLIT_MAP = {
       "29e3d3c8908bb566507cd8b1b3560e15.data": null,
       "0c2c310b28788b93284ef8d4d4fc6791.wasm": null,
       "01288fb2e5f57e194e52e16f7bed4cd4.framework.js": null
     };
     </script>
-
-    <script>
+<script>
     function mimeFor(url) {
       if (url.includes(".wasm")) return "application/wasm";
       if (url.includes(".js")) return "text/javascript";
@@ -174,8 +171,7 @@
       document.body.appendChild(script);
     })();
     </script>
-
-    <script>
+<script>
     function resizeCanvas() {
       const canvas = document.getElementById("unity-canvas");
       canvas.width = window.innerWidth;
@@ -186,5 +182,5 @@
     window.addEventListener("load", resizeCanvas);
     window.addEventListener("resize", resizeCanvas);
     </script>
-  </body>
+</body>
 </html>

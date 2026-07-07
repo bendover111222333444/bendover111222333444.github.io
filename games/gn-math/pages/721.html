@@ -1,24 +1,17 @@
 
-|
 <!DOCTYPE html>
 
-
-
-<!-- Ultimate Game Stash file--> 
+<!-- Ultimate Game Stash file-->
 <!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
-
-
-
-
 <!DOCTYPE html>
+
 <html lang="en-us">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/slqntdevss/ShiftAtMidnightPort@9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Shift at Midnight</title>
-		<style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/slqntdevss/ShiftAtMidnightPort@9d5cffa1e1b7ca2e35e1fb6154c77eb87c4f0a4a/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Unity Web Player | Shift at Midnight</title>
+<style>
 			html,
 			body {
 				margin: 0;
@@ -64,22 +57,21 @@
 
 
 </style>
-  </head>
-  <body>
-    <div id="loading-text"
-    style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
+</head>
+<body>
+<div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
   </div>
-    <div id="unity-container">
-      <canvas id="unity-canvas" width=960 height=540 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
-    </div>
-    <script>
+<div id="unity-container">
+<canvas height="540" id="unity-canvas" tabindex="-1" width="960"></canvas>
+<div id="unity-loading-bar">
+<div id="unity-logo"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+<div id="unity-warning"> </div>
+</div>
+<script>
       var loadingText = document.querySelector("#loading-text");
     let totalBytes = 0;
     let loadedBytes = 0;
@@ -191,7 +183,7 @@
       document.body.appendChild(script);
     })();
     </script>
-  
+
 
 </body>
 </html>

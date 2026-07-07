@@ -1,19 +1,17 @@
 
-|        <!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta name="theme-color" content="#000000">
-    <title>myTeardrop</title>
-    <base href="https://cdn.jsdelivr.net/gh/waycrosspublicmedia/teardrop/play/">
-    <meta content="myTeardrop" property="og:title" />
-    <meta content="Take care of your very own Teardrop!" property="og:description" />
-    <meta content="#4291ff" property="theme-color" />
-    <link rel="manifest" href="manifest.json" />
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta content="width=device-width, user-scalable=no" name="viewport"/>
+<meta content="#000000" name="theme-color"/>
+<title>myTeardrop</title>
+<base href="https://cdn.jsdelivr.net/gh/waycrosspublicmedia/teardrop/play/"/>
+<meta content="myTeardrop" property="og:title"/>
+<meta content="Take care of your very own Teardrop!" property="og:description"/>
+<meta content="#4291ff" property="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
 </head>
-
 </html>
 <style>
     canvas {
@@ -104,12 +102,11 @@
     }
 
 </style>
-<img id="collecting" src="Sprites/Load.png" style="bottom: calc(52%);">
+<img id="collecting" src="Sprites/Load.png" style="bottom: calc(52%);"/>
 <div id="loader">
-    <div id="bar"></div>
+<div id="bar"></div>
 </div>
 <!--<img id="loadbackground" src="Sprites/bg1024x1024.png">-->
-
 <!--<script>
     let scale = 640 / (1920 / 4);
     let landscapeMode = (640 * (window.innerWidth / window.innerHeight)) >= 360;
@@ -136,6 +133,5 @@
 <script src="pixi.js"></script>
 <script src="matter.js"></script>
 <script src="pizzicato.js"></script>
-<script type="module" src="ease.js"></script>
-<script type="module" src="bfdi/bfdi.js"></script>
-
+<script src="ease.js" type="module"></script>
+<script src="bfdi/bfdi.js" type="module"></script>

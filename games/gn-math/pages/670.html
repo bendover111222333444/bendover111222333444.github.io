@@ -1,18 +1,15 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/web-ports/raldi@main/">
-    <meta charset="utf-8" />
-    <title>BALDI</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
-    <meta
-      name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1.0"
-    />
-  <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/raldi@main/"/>
+<meta charset="utf-8"/>
+<title>BALDI</title>
+<link href="TemplateData/favicon.ico" rel="shortcut icon"/>
+<link href="TemplateData/style.css" rel="stylesheet"/>
+<meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport"/>
+<style>
 
 
 
@@ -20,31 +17,27 @@
 
 </style>
 </head>
-  <body>
-<div
-  id="loading-text"
-  style="
+<body>
+<div id="loading-text" style="
     color: white;
     background-color: black;
     font-size: 48px;
     font-family: cursive;
     text-align: center;
     margin-top: 20px;
-  "
->
+  ">
   LOADING...
 </div>
-
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="960" height="600"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-    </div>
-    <script>
+<div class="unity-desktop" id="unity-container">
+<canvas height="600" id="unity-canvas" width="960"></canvas>
+<div id="unity-loading-bar">
+<div id="unity-logo"></div>
+<div id="unity-progress-bar-empty">
+<div id="unity-progress-bar-full"></div>
+</div>
+</div>
+</div>
+<script>
       const loadingText = document.querySelector("#loading-text");
       let totalBytes = 244429525;
       let loadedBytes = 0;
@@ -168,7 +161,7 @@
         document.body.appendChild(script);
       })();
     </script>
-  
+
 
 </body>
 </html>

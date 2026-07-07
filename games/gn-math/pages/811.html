@@ -1,7 +1,6 @@
 <html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<style>
       body,
       html {
         margin: 0;
@@ -29,14 +28,14 @@
         display: inline-block;
       }
     </style>
-  </head>
-  <body>
-    <div id="game-container">
-      <div id="game"></div>
-      <div id="loading-progress">Loading: 0/0</div>
-      <div id="first-time">First-time loading may take longer...</div>
-    </div>
-    <script>
+</head>
+<body>
+<div id="game-container">
+<div id="game"></div>
+<div id="loading-progress">Loading: 0/0</div>
+<div id="first-time">First-time loading may take longer...</div>
+</div>
+<script>
           document.getElementById("loading-progress").remove();
           document.getElementById("first-time").remove();
           EJS_player = "#game";
@@ -50,5 +49,5 @@
           script.src = "https://cdn.jsdelivr.net/gh/genizy/emu@master/loader.js";
           document.body.appendChild(script);
     </script>
-  </body>
+</body>
 </html>

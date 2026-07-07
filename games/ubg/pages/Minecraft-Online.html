@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Minecraft Javascript Edition</title>
-		<link id="vtfont" href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-	</head>
-	<style>
+<head>
+<meta charset="utf-8"/>
+<title>Minecraft Javascript Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&amp;display=swap" id="vtfont" rel="stylesheet"/>
+</head>
+<style>
 		body {
 			overflow: hidden; /* Hide scrollbars */
 		}
@@ -88,27 +89,27 @@
 			color: white;
 		}
 	</style>
-	<body>
-	<canvas id="overlay" tabindex="0" width="600" height="600" style="position: absolute; top: 0px; left: 0px"></canvas>
-	<input type="text" id="savebox" class="hidden" spellcheck="false" style="position: absolute; top: 10px; left: 10px; z-index: 1;">
-	<input type="text" id="boxcentertop" class="hidden" spellcheck="false">
-	<div id="quota" class="hidden"></div>
-	<div id="onhover" class="hidden"></div>
-	<p id="savedirections" class="hidden" style="position: absolute; top: 40px; left: 10px; z-index: 1; background-color: rgba(255, 255, 255, 0.3);">
-			To save your world, copy/paste the saveString<br>
-		from this box into the Savestring (optinal)<br>
-		box on the singleplayer screen.<br>
-	  If you want to play on a diffrent device<br>
+<body>
+<canvas height="600" id="overlay" style="position: absolute; top: 0px; left: 0px" tabindex="0" width="600"></canvas>
+<input class="hidden" id="savebox" spellcheck="false" style="position: absolute; top: 10px; left: 10px; z-index: 1;" type="text"/>
+<input class="hidden" id="boxcentertop" spellcheck="false" type="text"/>
+<div class="hidden" id="quota"></div>
+<div class="hidden" id="onhover"></div>
+<p class="hidden" id="savedirections" style="position: absolute; top: 40px; left: 10px; z-index: 1; background-color: rgba(255, 255, 255, 0.3);">
+			To save your world, copy/paste the saveString<br/>
+		from this box into the Savestring (optinal)<br/>
+		box on the singleplayer screen.<br/>
+	  If you want to play on a diffrent device<br/>
     make sure you have the code saved.
 	</p>
-	<div class="world-select hidden" id="worlds"></div>
-	<p id="message" class="hidden" style="position: absolute; top: 10px; right: 10px; z-index: 1; text-align: right; background-color: rgba(255, 255, 255, 0.3);"></p>
-	<script>
+<div class="world-select hidden" id="worlds"></div>
+<p class="hidden" id="message" style="position: absolute; top: 10px; right: 10px; z-index: 1; text-align: right; background-color: rgba(255, 255, 255, 0.3);"></p>
+<script>
 		// Code edits will erase the world.
 		// Place save code here to load your world. Make extra sure you got it copied so you don't paste in the wrong thing and delete your world on accident lol
 		var loadString = ""
 	</script>
-	<script type="x-shader/vertex" id="blockVertexShader">
+<script id="blockVertexShader" type="x-shader/vertex">
 		attribute vec3  aVertex;
 		attribute vec2  aTexture;
 		attribute float aShadow;
@@ -128,7 +129,7 @@
 			vFog = clamp((length(uPos.xz - aVertex.xz) - uDist + range) / range, 0.0, 1.0);
 		}
 	</script>
-	<script type="x-shader/fragment" id="blockFragmentShader">
+<script id="blockFragmentShader" type="x-shader/fragment">
 		#ifdef GL_FRAGMENT_PRECISION_HIGH
 			precision highp float;
 		#else
@@ -153,7 +154,7 @@
 			if (gl_FragColor.a == 0.0) discard;
 		}
 	</script>
-	<script type="x-shader/vertex" id="2dVertexShader">
+<script id="2dVertexShader" type="x-shader/vertex">
 		attribute vec2 aVertex;
 		attribute vec2 aTexture;
 		attribute float aShadow;
@@ -166,7 +167,7 @@
 			gl_Position = vec4(aVertex, 0.5, 1.0);
 		}
 	</script>
-	<script type="x-shader/fragment" id="2dFragmentShader">
+<script id="2dFragmentShader" type="x-shader/fragment">
 		#ifdef GL_FRAGMENT_PRECISION_HIGH
 			precision highp float;
 		#else
@@ -183,7 +184,7 @@
 			if (gl_FragColor.a == 0.0) discard;
 		}
 	</script>
-	<script type="application/javascript">
+<script type="application/javascript">
 window.canvas = document.getElementById("overlay")
 window.ctx = canvas.getContext("2d")
 window.savebox = document.getElementById("savebox")
@@ -5491,5 +5492,5 @@ init()
 
 
 	</script>
-	</body>
+</body>
 </html>

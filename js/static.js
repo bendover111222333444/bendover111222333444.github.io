@@ -1,10 +1,20 @@
-import { content, navigateIframe } from "/js/public.js";
+import { content, navigateIframe, injectRaw } from "/js/public.js";
+import { tapeTemplate } from "/js/templates.js";
 
 const cloaker = document.getElementById("cloaker")
+const loadingDiv = document.getElementById("loadingDiv")
+const loadingTape = document.getElementById("loadingTape")
 
 const afterCloakLink = 'https://google.com'
 
+const tape = new Image();
+tape.src = "/images/tape.png";
+
+const tapeAmount = Math.ceil(tape.naturalWidth / tape.naturalHeight);
+
 let buttons = document.querySelectorAll("[data-send-to]");
+let templates = ""
+let forward = true;
 
 function openPopup() {
 
@@ -33,11 +43,49 @@ function openPopup() {
 
 }
 
+function fadeIn() {
+
+    loadingDiv.style.display = "block";
+    loadingDiv.classList.add("fadeInClass")
+
+    loadingDiv.addEventListener("animationend", (event) => {
+
+        if (event.animationName === "fadeIn") {
+
+            loadingDiv.classList.remove("fadeInClass")
+            loadingDiv.style.pointerEvents = "auto";
+
+        }
+
+    });
+
+}
+
+function fadeOut() {
+
+    loadingDiv.style.pointerEvents = "none";
+    loadingDiv.classList.add("fadeOutClass")
+
+    loadingDiv.addEventListener("animationend", (event) => {
+
+        if (event.animationName === "fadeOut") {
+
+            loadingDiv.classList.remove("fadeOutClass")
+            loadingDiv.style.display = "none";
+
+        }
+
+    });
+
+}
+
 async function buttonFunc(event) {
 
     const sendTo = event.currentTarget.dataset.sendTo;
 
     if (sendTo) {
+
+        fadeIn();
 
         await navigateIframe(content, `/pages/${sendTo}`);
 
@@ -45,14 +93,44 @@ async function buttonFunc(event) {
 
 }
 
-buttons.forEach(button => {
+(async () => {
 
-    button.addEventListener("click", buttonFunc);
+    fadeOut();
 
-});
+    for (let tapeIndex = 0; tapeIndex < tapeAmount; tapeIndex++) {
 
-cloaker.addEventListener("click", () => {
+        templates += tapeTemplate(forward);
+        
+        if (forward === true) {
 
-    openPopup();
+            forward = false;
 
-}) 
+        } else if (forward === false) {
+
+            forward = true;
+
+        }
+
+    }
+
+    await injectRaw(loadingTape, templates);
+
+    content.addEventListener("load", () => {
+
+        fadeOut()
+
+    });
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", buttonFunc);
+
+    });
+
+    cloaker.addEventListener("click", () => {
+
+        openPopup();
+
+    }) 
+
+})();

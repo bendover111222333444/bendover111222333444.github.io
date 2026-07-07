@@ -1,20 +1,19 @@
-<!doctypehtml>
-	<html lang=en>
+<!DOCTYPE tml>
 
-	<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <base href="https://cdn.jsdelivr.net/gh/web-ports/srb2@main/">
-		<meta charset=utf-8>
-		<link rel="canonical" href="https://kbhgames.com/game/sonic-robo-blast-2">
-		<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name=viewport>
-		<title>Sonic Robo Blast 2</title>
-		<script>
+<html lang="en">
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/web-ports/srb2@main/"/>
+<meta charset="utf-8"/>
+<link href="https://kbhgames.com/game/sonic-robo-blast-2" rel="canonical"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"/>
+<title>Sonic Robo Blast 2</title>
+<script>
 			Object.defineProperty(window, "devicePixelRatio", {
 				value: 1,
 				writable: !1
 			})
 		</script>
-		<style>
+<style>
 			* {
 				margin: 0;
 				padding: 0;
@@ -239,48 +238,46 @@
   100% { background-position: 0% 50%; }
 }
 		</style>
-	</head>
-
-	<body>
-<div id="loading-text"
-    style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
+</head>
+<body>
+<div id="loading-text" style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
   </div>
-		<div id=loading>
-			<h2>Sonic Robo Blast 2</h2>
-			<p>Loading game data...</p>
-			<div id=progress-bar>
-				<div id=progress-fill></div>
-			</div>
-			<div id=progress-text>Initializing...</div>
-			<div id=status-text></div>
-		</div>
-		<div id=error>
-			<h2>Error</h2>
-			<pre id=error-text></pre>
-			<p>Check the browser console for details.</p>
-		</div><canvas id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
-		<div id=controls>
-			<div id=saves-menu style=position:relative;display:inline-block><button onclick='var m=document.getElementById("saves-dropdown");m.style.display="block"===m.style.display?"none":"block"'>Save</button>
-				<div id=saves-dropdown style=display:none;position:absolute;bottom:100%;right:0;margin-bottom:4px><button onclick='exportSaves(),document.getElementById("saves-dropdown").style.display="none"'>Export</button> <button onclick='document.getElementById("import-file").click(),document.getElementById("saves-dropdown").style.display="none"'>Import</button></div>
-			</div><input accept=.json id=import-file onchange=importSaves(event) style=display:none type=file>
-		</div>
-		<div id=save-status></div>
-		<div id=touch-controls>
-			<div style=top:10px;left:10px class="touch-btn btn-esc" data-key=27>Esc</div>
-			<div id=dpad-container>
-				<div style=left:54px;top:0 class=touch-btn data-key=230>▲</div>
-				<div style=left:0;top:54px class=touch-btn data-key=233>◀</div>
-				<div style=left:108px;top:54px class=touch-btn data-key=235>▶</div>
-				<div style=left:54px;top:108px class=touch-btn data-key=238>▼</div>
-			</div>
-			<div id=action-container>
-				<div style=left:54px;top:0 class=touch-btn data-key=97>A</div>
-				<div style=left:0;top:54px class=touch-btn data-key=32>★</div>
-				<div style=left:108px;top:54px class=touch-btn data-key=13>⏎</div>
-				<div style=left:54px;top:108px class=touch-btn data-key=115>S</div>
-			</div>
-		</div>
-		<script>
+<div id="loading">
+<h2>Sonic Robo Blast 2</h2>
+<p>Loading game data...</p>
+<div id="progress-bar">
+<div id="progress-fill"></div>
+</div>
+<div id="progress-text">Initializing...</div>
+<div id="status-text"></div>
+</div>
+<div id="error">
+<h2>Error</h2>
+<pre id="error-text"></pre>
+<p>Check the browser console for details.</p>
+</div><canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+<div id="controls">
+<div id="saves-menu" style="position:relative;display:inline-block"><button onclick='var m=document.getElementById("saves-dropdown");m.style.display="block"===m.style.display?"none":"block"'>Save</button>
+<div id="saves-dropdown" style="display:none;position:absolute;bottom:100%;right:0;margin-bottom:4px"><button onclick='exportSaves(),document.getElementById("saves-dropdown").style.display="none"'>Export</button> <button onclick='document.getElementById("import-file").click(),document.getElementById("saves-dropdown").style.display="none"'>Import</button></div>
+</div><input accept=".json" id="import-file" onchange="importSaves(event)" style="display:none" type="file"/>
+</div>
+<div id="save-status"></div>
+<div id="touch-controls">
+<div class="touch-btn btn-esc" data-key="27" style="top:10px;left:10px">Esc</div>
+<div id="dpad-container">
+<div class="touch-btn" data-key="230" style="left:54px;top:0">▲</div>
+<div class="touch-btn" data-key="233" style="left:0;top:54px">◀</div>
+<div class="touch-btn" data-key="235" style="left:108px;top:54px">▶</div>
+<div class="touch-btn" data-key="238" style="left:54px;top:108px">▼</div>
+</div>
+<div id="action-container">
+<div class="touch-btn" data-key="97" style="left:54px;top:0">A</div>
+<div class="touch-btn" data-key="32" style="left:0;top:54px">★</div>
+<div class="touch-btn" data-key="13" style="left:108px;top:54px">⏎</div>
+<div class="touch-btn" data-key="115" style="left:54px;top:108px">S</div>
+</div>
+</div>
+<script>
 var loadingText = document.querySelector("#loading-text");
     let totalBytes = 0;
     let loadedBytes = 0;
@@ -614,6 +611,5 @@ var loadingText = document.querySelector("#loading-text");
             loadingText.remove();
                 })();
 		</script>
-	</body>
-
-	</html>
+</body>
+</html>

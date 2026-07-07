@@ -1,22 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en-us">
-<head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-  <base href="https://cdn.jsdelivr.net/gh/NotRexed/Unblocked-Games@latest/diceamillion/">
-  <meta charset="utf-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-  <title>Dice a Million</title>
-  <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<base href="https://cdn.jsdelivr.net/gh/NotRexed/Unblocked-Games@latest/diceamillion/"/>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport"/>
+<title>Dice a Million</title>
+<style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; background: #000; overflow: hidden; }
     #canvas { position: fixed; top: 0; left: 0; transform-origin: top left; }
   </style>
 </head>
 <body>
-  <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
-
-  <script>
+<canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+<script>
   const canvas = document.getElementById('canvas');
 
   const origSetProperty = canvas.style.setProperty.bind(canvas.style);
@@ -46,8 +45,7 @@
   window.addEventListener('resize', scaleCanvas);
   setInterval(scaleCanvas, 200);
   </script>
-
-  <script>
+<script>
   const _open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function(method, url, ...args) {
     if (typeof url === 'string' && url.includes('mus.dat')) {
@@ -74,8 +72,7 @@
     return _open.call(this, method, url, ...args);
   };
   </script>
-
-  <script>
+<script>
   function manifestFiles() {
     return ["runner.data","runner.js","runner.wasm","audio-worklet.js","game.unx","mus.dat","snd.dat","resources/eb.mp4"].join(";");
   }
@@ -92,8 +89,7 @@
   function hasJSExceptionHandler() { return typeof g_pJSExceptionHandler === 'function'; }
   function doJSExceptionHandler(j) { if (hasJSExceptionHandler()) g_pJSExceptionHandler(JSON.parse(j)); }
   </script>
-
-  <script>
+<script>
   var Module = {
     preRun: [],
     postRun: [],
@@ -118,8 +114,7 @@
     }
   }, { once: true });
   </script>
-
-  <script>
+<script>
   (async function() {
     const BASE = 'https://cdn.jsdelivr.net/gh/NotRexed/Unblocked-Games@latest/diceamillion/';
     const res = await fetch(BASE + 'runner.js');

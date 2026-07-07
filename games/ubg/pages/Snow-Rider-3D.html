@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en-us">
 
+<html lang="en-us">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Snow Rider 3D</title>
-    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/TemplateData/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/TemplateData/style.css">
-    <meta name="description" content="Snow Rider 3D, Snow Rider 3D Mathnook, Snow Rider 3D Unblocked">
-    <meta property="og:image" content="snow-rider-3d.png" />
-    <script src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/TemplateData/UnityProgress.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/Build/UnityLoader.js"></script>
-    <script>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Snow Rider 3D</title>
+<link href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/TemplateData/favicon.ico" rel="shortcut icon"/>
+<link href="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/TemplateData/style.css" rel="stylesheet"/>
+<meta content="Snow Rider 3D, Snow Rider 3D Mathnook, Snow Rider 3D Unblocked" name="description"/>
+<meta content="snow-rider-3d.png" property="og:image"/>
+<script src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/TemplateData/UnityProgress.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ubggames-web/ubggames-web.github.io@main//Snow-Rider-3D/Build/UnityLoader.js"></script>
+<script>
         function resizeGameContainer() {
             var container = document.getElementById('gameContainer');
             var aspectRatio = 960 / 600; // Adjust this ratio based on your original container size
@@ -46,16 +46,10 @@
             var gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function () { UnityProgress(gameInstance, "complete") } } });
         });
     </script>
-    
-    
 </head>
-
 <body style="overflow: hidden; margin: 0; padding: 0; height: 100vh; display: flex; background-color: #000">
-    <div class="webgl-content" style="width: 100%; height: 100vh; display: flex;">
-        <div id="gameContainer"></div>
-    </div>
+<div class="webgl-content" style="width: 100%; height: 100vh; display: flex;">
+<div id="gameContainer"></div>
+</div>
 </body>
-
-
-
 </html>

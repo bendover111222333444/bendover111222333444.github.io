@@ -4,8 +4,6 @@ import subprocess
 SCRIPTS_TO_RUN = [
     "delete.py",
     "scrape.py",
-    "delocalfy.py",
-    "convert.py",
     "rewrite.py",
 ]
 

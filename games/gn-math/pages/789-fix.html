@@ -1,14 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stardew Valley</title>
-    <base
-      href="https://cdn.jsdelivr.net/gh/degloved-net/stardew-wasm@master/"
-    />
-    <style>
+<head><script src="https://cdn.jsdelivr.net/gh/bendover111222333444/bendover111222333444.github.io@main/js/games/request-fallback.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stardew Valley</title>
+<base href="https://cdn.jsdelivr.net/gh/degloved-net/stardew-wasm@master/"/>
+<style>
       *,
       *::before,
       *::after {
@@ -68,20 +66,20 @@
         display: block;
       }
     </style>
-  </head>
-  <body>
-    <div id="loading">
-      <div id="music-choice">
-        <div>Download options</div>
-        <button id="btn-no-music">
+</head>
+<body>
+<div id="loading">
+<div id="music-choice">
+<div>Download options</div>
+<button id="btn-no-music">
           Play without music <span class="hint">(~64 MB)</span>
-        </button>
-        <button id="btn-with-music">
+</button>
+<button id="btn-with-music">
           Play with music <span class="hint">(~540 MB)</span>
-        </button>
-      </div>
-    </div>
-    <script>
+</button>
+</div>
+</div>
+<script>
       const originalFetch = window.fetch;
       window.fetch = function (resource, options = {}) {
         options.credentials = "omit";
@@ -176,9 +174,8 @@
         }
       })();
     </script>
-
-    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-    <script>
+<canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+<script>
 (async () => {
 const BASE = document.querySelector("base").href;
 const loading = document.getElementById("loading");
@@ -345,5 +342,5 @@ document.addEventListener("keydown", (e) => {
 await exports.WasmBootstrap.MainLoop();
 })();
     </script>
-  </body>
+</body>
 </html>
